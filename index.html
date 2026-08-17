@@ -278,6 +278,16 @@ button{font-family:inherit;cursor:pointer;}
 </style>
 <style id="nsse-common-ui">
 .nsse-bell{position:relative;width:42px;height:42px;border:1px solid rgba(18,92,48,.25);background:#fff;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:#0b4423;cursor:pointer;transition:.2s}.nsse-bell:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(6,46,26,.12)}.nsse-bell svg{width:20px;height:20px}.nsse-bell .nsse-count{position:absolute;right:-2px;top:-3px;min-width:18px;height:18px;padding:0 5px;border-radius:999px;background:#8bc540;color:#062e1a;font:700 10px/18px Inter,sans-serif;text-align:center;display:none}.nsse-login-btn{border:0;background:transparent;color:inherit;font:inherit;font-weight:600;cursor:pointer}.nsse-login-overlay{position:fixed;inset:0;background:rgba(2,18,10,.58);backdrop-filter:blur(7px);display:none;align-items:center;justify-content:center;padding:20px;z-index:9999}.nsse-login-overlay.open{display:flex}.nsse-login-card{width:min(430px,100%);background:#fff;border-radius:24px;padding:34px;box-shadow:0 30px 90px rgba(0,0,0,.28);position:relative;transform:translateY(18px) scale(.97);opacity:0;animation:nsseLoginIn .45s cubic-bezier(.2,.7,.3,1) forwards}.nsse-login-card:before{content:'';position:absolute;inset:0 0 auto;height:5px;border-radius:24px 24px 0 0;background:linear-gradient(90deg,#8bc540,#125c30)}@keyframes nsseLoginIn{to{transform:none;opacity:1}}.nsse-login-close{position:absolute;right:14px;top:12px;width:34px;height:34px;border:0;background:#f2f5f0;border-radius:50%;font-size:22px;color:#4b564a;cursor:pointer}.nsse-login-logo{width:64px;height:64px;object-fit:contain;margin:0 auto 14px}.nsse-login-card h2{text-align:center;margin-bottom:5px}.nsse-login-sub{text-align:center;color:#4b564a;font-size:.88rem;margin-bottom:22px}.nsse-auth-input{width:100%;padding:12px 14px;border:1px solid #dfe7dc;border-radius:11px;margin-bottom:10px;font:inherit;outline:none}.nsse-auth-input:focus{border-color:#8bc540;box-shadow:0 0 0 3px rgba(139,197,64,.16)}.nsse-auth-error{display:none;background:#fdeceb;color:#a1261f;padding:10px 12px;border-radius:10px;font-size:.82rem;margin-bottom:12px}.nsse-auth-success{display:none;background:#eef8e8;color:#125c30;padding:10px 12px;border-radius:10px;font-size:.82rem;margin-bottom:12px}.nsse-google-btn{width:100%;padding:11px;border:1px solid #dfe7dc;background:#fff;border-radius:11px;font-weight:700;cursor:pointer;display:flex;justify-content:center;gap:9px;align-items:center}.nsse-auth-divider{display:flex;align-items:center;gap:10px;color:#778174;font-size:.75rem;margin:14px 0}.nsse-auth-divider:before,.nsse-auth-divider:after{content:'';height:1px;background:#e2e8de;flex:1}.nsse-auth-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}.nsse-bell-panel{position:fixed;right:22px;top:78px;width:min(410px,calc(100vw - 28px));max-height:70vh;overflow:auto;background:#fff;border:1px solid #e2e8de;border-radius:18px;box-shadow:0 20px 55px rgba(6,46,26,.18);z-index:9990;display:none}.nsse-bell-panel.open{display:block;animation:nssePanelIn .22s ease}@keyframes nssePanelIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}.nsse-bell-head{padding:16px 18px;border-bottom:1px solid #e2e8de;display:flex;justify-content:space-between;align-items:center}.nsse-bell-item{padding:15px 18px;border-bottom:1px solid #edf1eb}.nsse-bell-item:last-child{border-bottom:0}.nsse-bell-item small{color:#778174}.nsse-wa{position:fixed;right:22px;bottom:22px;width:56px;height:56px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 30px rgba(0,0,0,.2);z-index:9000;transition:.2s}.nsse-wa:hover{transform:translateY(-4px) scale(1.03)}.nsse-socials{display:flex;gap:10px;margin-top:16px}.nsse-socials a{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:#fff}.nsse-socials svg{width:19px;height:19px}.nsse-replies-block{margin-top:28px}.nsse-reply-card{background:#fff;border:1px solid #e2e8de;border-left:4px solid #8bc540;border-radius:12px;padding:16px;margin-bottom:12px}.nsse-reply-card small{color:#778174}.nsse-user-menu{display:none;align-items:center;gap:8px;font-size:.8rem}.nsse-user-menu.show{display:flex}.nsse-user-avatar{width:30px;height:30px;border-radius:50%;object-fit:cover}.nsse-page-editor-note{font-size:.8rem;color:#778174;margin-top:4px}
+.nsse-profile-head{text-align:center;margin-bottom:18px}
+.nsse-profile-avatar{width:78px;height:78px;border-radius:50%;background:linear-gradient(135deg,var(--green-800),var(--lime-500));color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:800;font-size:1.7rem;margin:0 auto 12px;box-shadow:0 10px 26px rgba(6,46,26,.24)}
+.nsse-profile-name{font-family:var(--font-display);font-weight:800;font-size:1.22rem;color:var(--green-900);margin-bottom:6px}
+.nsse-profile-badge{display:inline-flex;align-items:center;gap:5px;background:#eef8e8;color:#125c30;font-size:.72rem;font-weight:700;letter-spacing:.03em;padding:5px 12px;border-radius:999px}
+.nsse-profile-badge svg{width:12px;height:12px}
+.nsse-profile-rows{background:#f6f9f3;border:1px solid #e7ede4;border-radius:14px;overflow:hidden}
+.nsse-profile-row{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:13px 16px;font-size:.87rem;border-bottom:1px solid #e7ede4}
+.nsse-profile-row:last-child{border-bottom:0}
+.nsse-profile-row .k{color:#4b564a;font-weight:600}
+.nsse-profile-row .v{color:#12180f;font-weight:700;text-align:right;word-break:break-word}
 
 /* NSSE global page transition */
 #nssePageLoader{position:fixed;inset:0;z-index:20000;background:linear-gradient(135deg,#062e1a,#125c30 55%,#8bc540);display:flex;align-items:center;justify-content:center;transition:opacity .55s ease,visibility .55s ease}
@@ -668,7 +678,7 @@ function renderPreview(items){
     }
     if(!document.getElementById('nsseProfilePanel')){
       const p=document.createElement('div');p.id='nsseProfilePanel';p.className='nsse-login-overlay';
-      p.innerHTML='<div class="nsse-login-card"><button class="nsse-login-close" id="nsseProfileClose">×</button><img class="nsse-login-logo" src="assets/images/logo.png"><h2>My Profile</h2><p class="nsse-login-sub">Your account details</p><div id="nsseProfileContent"></div><button class="btn btn-primary" id="nsseProfileLogout" style="width:100%;margin-top:16px">Logout</button></div>';
+      p.innerHTML='<div class="nsse-login-card"><button class="nsse-login-close" id="nsseProfileClose">×</button><h2 style="text-align:center">My Profile</h2><p class="nsse-login-sub">Your NSSE account details</p><div id="nsseProfileContent"></div><button class="btn btn-danger" id="nsseProfileLogout" style="width:100%;margin-top:18px">Logout</button></div>';
       document.body.appendChild(p);
     }
     if(!document.getElementById('nsseWA')){
@@ -759,7 +769,8 @@ function renderPreview(items){
           await auth.signOut().catch(()=>{});
           if(btn)btn.textContent='Login';document.body.dataset.loggedIn='false';
         }else if(verified){
-          if(btn)btn.textContent='Account';document.body.dataset.loggedIn='true';localStorage.setItem(NSSE_KNOWN_ACCOUNT_KEY,'1');
+          if(btn)btn.textContent='My Profile';document.body.dataset.loggedIn='true';localStorage.setItem(NSSE_KNOWN_ACCOUNT_KEY,'1');
+          document.getElementById('nsseLoginOverlay')?.classList.remove('open');
         }else{
           await auth.signOut().catch(()=>{});
           if(btn)btn.textContent='Login';document.body.dataset.loggedIn='false';
@@ -812,8 +823,11 @@ function renderPreview(items){
   async function showProfile(){
     const u=auth.currentUser;if(!u)return;
     const d=await getUserProfile(u.uid);if(!d){await auth.signOut();return}
+    document.getElementById('nsseLoginOverlay')?.classList.remove('open');
     const box=document.getElementById('nsseProfileContent');
-    box.innerHTML='<div style="background:#f6f9f3;border-radius:12px;padding:14px 15px;line-height:1.9"><div><b>Name:</b> '+esc(d.name||'')+'</div><div><b>Father Name:</b> '+esc(d.fatherName||'')+'</div><div><b>WhatsApp:</b> '+esc(d.whatsapp||'')+'</div><div><b>Email:</b> '+esc(d.email||u.email||'')+'</div></div>';
+    const name=d.name||u.displayName||'NSSE Account';
+    const initials=(name.trim().split(/\s+/).slice(0,2).map(w=>w[0]||'').join('')||'NS').toUpperCase();
+    box.innerHTML='<div class="nsse-profile-head"><div class="nsse-profile-avatar">'+esc(initials)+'</div><div class="nsse-profile-name">'+esc(name)+'</div><span class="nsse-profile-badge"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 4.86 5.36.78-3.88 3.78.92 5.35L12 14.9l-4.8 2.52.92-5.35-3.88-3.78 5.36-.78z"/></svg>Verified Account</span></div><div class="nsse-profile-rows"><div class="nsse-profile-row"><span class="k">Father Name</span><span class="v">'+esc(d.fatherName||'—')+'</span></div><div class="nsse-profile-row"><span class="k">WhatsApp</span><span class="v">'+esc(d.whatsapp||'—')+'</span></div><div class="nsse-profile-row"><span class="k">Email</span><span class="v">'+esc(d.email||u.email||'—')+'</span></div></div>';
     document.getElementById('nsseProfilePanel').classList.add('open');
   }
   function wireProfile(){
@@ -891,30 +905,29 @@ function renderPreview(items){
     };
 
     if(isMain){
-      const known=localStorage.getItem(NSSE_KNOWN_ACCOUNT_KEY)==='1';
-      setTimeout(()=>{setAuthView(known?'login':'create');o.classList.add('open')},700);
-    }
-    document.addEventListener('click',e=>{
-      if(e.target.closest('#nsseLoginOpen')){
+      setTimeout(()=>{
+        if(document.body.dataset.loggedIn==='true')return;
         const known=localStorage.getItem(NSSE_KNOWN_ACCOUNT_KEY)==='1';
         setAuthView(known?'login':'create');
         o.classList.add('open');
-      }
-    });
+      },700);
+    }
   }
   function injectLoginButton(){
     const actions=document.querySelector('.nav-actions');if(!actions||document.getElementById('nsseLoginOpen'))return;
     const wrap=document.createElement('div');wrap.id='nsseAccountWrap';wrap.style.position='relative';
     const b=document.createElement('button');b.id='nsseLoginOpen';b.className='btn btn-outline btn-sm';b.textContent='Login';wrap.appendChild(b);
-    const menu=document.createElement('div');menu.id='nsseAccountMenu';menu.style.cssText='display:none;position:absolute;right:0;top:calc(100% + 8px);background:#fff;border:1px solid #e2e8de;border-radius:12px;box-shadow:0 14px 35px rgba(6,46,26,.16);padding:8px;min-width:150px;max-width:calc(100vw - 24px);z-index:10001';
-    menu.innerHTML='<button id="nsseLogoutBtn" style="width:100%;border:0;background:none;padding:10px 12px;text-align:left;border-radius:8px;color:#b3261e;font-weight:700;cursor:pointer">Logout</button>';
-    wrap.appendChild(menu);actions.insertBefore(wrap,actions.firstChild);
-    b.addEventListener('click',async()=>{if(document.body.dataset.loggedIn==='true'){menu.style.display=menu.style.display==='block'?'none':'block';if(menu.style.display==='block')await showProfile()}});
-    document.addEventListener('click',e=>{if(!wrap.contains(e.target))menu.style.display='none'});
-    document.getElementById('nsseLogoutBtn').onclick=async()=>{
-      try{await auth.signOut();menu.style.display='none';document.getElementById('nsseProfilePanel')?.classList.remove('open');setAuthView('login');document.getElementById('nsseLoginOverlay').classList.add('open')}
-      catch(e){console.error(e)}
-    };
+    actions.insertBefore(wrap,actions.firstChild);
+    b.addEventListener('click',async e=>{
+      e.stopPropagation();
+      if(document.body.dataset.loggedIn==='true'){
+        await showProfile();
+      }else{
+        const known=localStorage.getItem(NSSE_KNOWN_ACCOUNT_KEY)==='1';
+        setAuthView(known?'login':'create');
+        document.getElementById('nsseLoginOverlay').classList.add('open');
+      }
+    });
   }
   async function requireLogin(){
     if(auth.currentUser)return true;
