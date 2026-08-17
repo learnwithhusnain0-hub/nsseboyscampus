@@ -624,7 +624,7 @@ function renderPreview(items){
     }
     if(!document.getElementById('nsseLoginOverlay')){
       const o=document.createElement('div');o.id='nsseLoginOverlay';o.className='nsse-login-overlay';
-      o.innerHTML='<div class="nsse-login-card"><button class="nsse-login-close" id="nsseLoginClose">×</button><img class="nsse-login-logo" src="assets/images/logo.png"><div id="nsseAuthCreateView"><h2>Create your account</h2><p class="nsse-login-sub">Create a new NSSE account. Only Gmail addresses are accepted.</p><div class="nsse-auth-error" id="nsseCreateError"></div><div class="nsse-auth-success" id="nsseCreateSuccess"></div><input class="nsse-auth-input" id="nsseSignupEmail" type="email" autocomplete="email" placeholder="Gmail address"><input class="nsse-auth-input" id="nsseSignupPassword" type="password" autocomplete="new-password" placeholder="Password"><input class="nsse-auth-input" id="nsseSignupPassword2" type="password" autocomplete="new-password" placeholder="Confirm password"><button class="btn btn-primary" style="width:100%;margin-top:4px" id="nsseEmailSignup">Create account</button><p style="text-align:center;margin:16px 0 0;color:#4b564a;font-size:.84rem">Already have a verified account? <button id="nsseShowLogin" style="border:0;background:none;color:#125c30;font-weight:700;cursor:pointer;padding:0">Login</button></p></div><div id="nsseAuthLoginView" style="display:none"><h2>Login to your account</h2><p class="nsse-login-sub">Only a previously verified NSSE account can log in.</p><div class="nsse-auth-error" id="nsseAuthError"></div><div class="nsse-auth-success" id="nsseLoginSuccess"></div><input class="nsse-auth-input" id="nsseEmail" type="email" autocomplete="email" placeholder="Gmail address"><input class="nsse-auth-input" id="nssePassword" type="password" autocomplete="current-password" placeholder="Password"><button class="btn btn-primary" style="width:100%;margin-top:4px" id="nsseEmailLogin">Login</button><p style="text-align:center;margin:16px 0 0;color:#4b564a;font-size:.84rem">New here? <button id="nsseShowCreate" style="border:0;background:none;color:#125c30;font-weight:700;cursor:pointer;padding:0">Create account</button></p></div></div>';
+      o.innerHTML='<div class="nsse-login-card"><button class="nsse-login-close" id="nsseLoginClose">×</button><img class="nsse-login-logo" src="assets/images/logo.png"><div id="nsseAuthCreateView"><h2>Create your account</h2><button class="nsse-google-btn" id="nsseGoogleSignup"><span style="font-size:18px">G</span> Sign up with Google</button><div class="nsse-auth-divider">or create with email</div><p class="nsse-login-sub">Create a new NSSE account. Only Gmail addresses are accepted.</p><div class="nsse-auth-error" id="nsseCreateError"></div><div class="nsse-auth-success" id="nsseCreateSuccess"></div><input class="nsse-auth-input" id="nsseSignupEmail" type="email" autocomplete="email" placeholder="Gmail address"><input class="nsse-auth-input" id="nsseSignupPassword" type="password" autocomplete="new-password" placeholder="Password"><input class="nsse-auth-input" id="nsseSignupPassword2" type="password" autocomplete="new-password" placeholder="Confirm password"><button class="btn btn-primary" style="width:100%;margin-top:4px" id="nsseEmailSignup">Create account</button><p style="text-align:center;margin:16px 0 0;color:#4b564a;font-size:.84rem">Already have a verified account? <button id="nsseShowLogin" style="border:0;background:none;color:#125c30;font-weight:700;cursor:pointer;padding:0">Login</button></p></div><div id="nsseAuthLoginView" style="display:none"><h2>Login to your account</h2><button class="nsse-google-btn" id="nsseGoogleLogin"><span style="font-size:18px">G</span> Sign in with Google</button><div class="nsse-auth-divider">or login with email</div><p class="nsse-login-sub">Only a previously verified NSSE account can log in.</p><div class="nsse-auth-error" id="nsseAuthError"></div><div class="nsse-auth-success" id="nsseLoginSuccess"></div><input class="nsse-auth-input" id="nsseEmail" type="email" autocomplete="email" placeholder="Gmail address"><input class="nsse-auth-input" id="nssePassword" type="password" autocomplete="current-password" placeholder="Password"><button class="btn btn-primary" style="width:100%;margin-top:4px" id="nsseEmailLogin">Login</button><p style="text-align:center;margin:16px 0 0;color:#4b564a;font-size:.84rem">New here? <button id="nsseShowCreate" style="border:0;background:none;color:#125c30;font-weight:700;cursor:pointer;padding:0">Create account</button></p></div></div>';
       document.body.appendChild(o);
     }
     if(!document.getElementById('nsseWA')){
@@ -709,9 +709,17 @@ function renderPreview(items){
       const btn=document.getElementById('nsseLoginOpen');
       if(u){
         await u.reload().catch(()=>{});
-        const verified=!!(auth.currentUser&&auth.currentUser.emailVerified);
-        if(verified){if(btn)btn.textContent='Account';document.body.dataset.loggedIn='true';localStorage.setItem(NSSE_KNOWN_ACCOUNT_KEY,'1');}
-        else{await auth.signOut().catch(()=>{});if(btn)btn.textContent='Login';document.body.dataset.loggedIn='false';}
+        const email=String(u.email||'').trim().toLowerCase();
+        const verified=!!u.emailVerified || u.providerData.some(p=>p.providerId==='google.com');
+        if(!isAllowedGmail(email)){
+          await auth.signOut().catch(()=>{});
+          if(btn)btn.textContent='Login';document.body.dataset.loggedIn='false';
+        }else if(verified){
+          if(btn)btn.textContent='Account';document.body.dataset.loggedIn='true';localStorage.setItem(NSSE_KNOWN_ACCOUNT_KEY,'1');
+        }else{
+          await auth.signOut().catch(()=>{});
+          if(btn)btn.textContent='Login';document.body.dataset.loggedIn='false';
+        }
       }else{if(btn)btn.textContent='Login';document.body.dataset.loggedIn='false';}
       if(page==='announcements'){
         const old=document.getElementById('nsseReplies');if(old)old.parentElement.remove();
@@ -755,6 +763,38 @@ function renderPreview(items){
     o.addEventListener('click',e=>{if(e.target===o)close()});
     document.getElementById('nsseShowLogin').onclick=()=>setAuthView('login');
     document.getElementById('nsseShowCreate').onclick=()=>setAuthView('create');
+
+    const googleAuth=async(mode)=>{
+      try{
+        const provider=new firebase.auth.GoogleAuthProvider();
+        provider.setCustomParameters({prompt:'select_account'});
+        const result=await auth.signInWithPopup(provider);
+        const user=result.user;
+        const email=String(user.email||'').trim().toLowerCase();
+        if(!isAllowedGmail(email)){
+          await auth.signOut();
+          showAuthMessage(mode==='signup'?'nsseCreateError':'nsseAuthError','Only Google accounts using a @gmail.com address are allowed.',false);
+          return;
+        }
+        const isNew=!!(result.additionalUserInfo&&result.additionalUserInfo.isNewUser);
+        if(mode==='login' && isNew){
+          await auth.signOut();
+          showAuthMessage('nsseAuthError','No existing verified account was found for this Google account. Please use Sign up with Google first.',false);
+          return;
+        }
+        if(mode==='signup' && !isNew){
+          await auth.signOut();
+          showAuthMessage('nsseCreateError','This Google account already has an account. Please use Sign in with Google instead.',false);
+          return;
+        }
+        localStorage.setItem(NSSE_KNOWN_ACCOUNT_KEY,'1');
+        close();
+      }catch(e){
+        showAuthMessage(mode==='signup'?'nsseCreateError':'nsseAuthError',friendlyAuthError(e,mode),false);
+      }
+    };
+    document.getElementById('nsseGoogleSignup').onclick=()=>googleAuth('signup');
+    document.getElementById('nsseGoogleLogin').onclick=()=>googleAuth('login');
 
     document.getElementById('nsseEmailSignup').onclick=async()=>{
       const email=document.getElementById('nsseSignupEmail').value.trim().toLowerCase();
