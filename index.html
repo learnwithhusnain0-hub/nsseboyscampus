@@ -695,7 +695,7 @@ function renderPreview(items){
     }
     if(!document.getElementById('nsseLoginOverlay')){
       const o=document.createElement('div');o.id='nsseLoginOverlay';o.className='nsse-login-overlay';
-      o.innerHTML='<div class="nsse-login-card"><button class="nsse-login-close" id="nsseLoginClose">×</button><img class="nsse-login-logo" src="assets/images/logo.png"><div id="nsseAuthCreateView"><h2>Create your account</h2><button class="nsse-google-btn" id="nsseGoogleSignup"><span style="font-size:18px">G</span> Sign up with Google</button><div class="nsse-auth-divider">or create with email</div><p class="nsse-login-sub">Please provide your details. Only Gmail addresses are accepted.</p><div class="nsse-auth-error" id="nsseCreateError"></div><div class="nsse-auth-success" id="nsseCreateSuccess"></div><input class="nsse-auth-input" id="nsseSignupName" type="text" autocomplete="name" placeholder="Full name"><input class="nsse-auth-input" id="nsseSignupFather" type="text" placeholder="Father name"><input class="nsse-auth-input" id="nsseSignupWp" type="tel" placeholder="WhatsApp number"><input class="nsse-auth-input" id="nsseSignupEmail" type="email" autocomplete="email" placeholder="Gmail address"><input class="nsse-auth-input" id="nsseSignupPassword" type="password" autocomplete="new-password" placeholder="Password"><input class="nsse-auth-input" id="nsseSignupPassword2" type="password" autocomplete="new-password" placeholder="Confirm password"><button class="btn btn-primary" style="width:100%;margin-top:4px" id="nsseEmailSignup">Create account</button><p style="text-align:center;margin:16px 0 0;color:#4b564a;font-size:.84rem">Already have a verified account? <button id="nsseShowLogin" style="border:0;background:none;color:#125c30;font-weight:700;cursor:pointer;padding:0">Login</button></p></div><div id="nsseAuthLoginView" style="display:none"><h2>Login to your account</h2><button class="nsse-google-btn" id="nsseGoogleLogin"><span style="font-size:18px">G</span> Sign in with Google</button><div class="nsse-auth-divider">or login with email</div><p class="nsse-login-sub">Only a previously verified NSSE account can log in.</p><div class="nsse-auth-error" id="nsseAuthError"></div><div class="nsse-auth-success" id="nsseLoginSuccess"></div><input class="nsse-auth-input" id="nsseEmail" type="email" autocomplete="email" placeholder="Gmail address"><input class="nsse-auth-input" id="nssePassword" type="password" autocomplete="current-password" placeholder="Password"><button class="btn btn-primary" style="width:100%;margin-top:4px" id="nsseEmailLogin">Login</button><p style="text-align:center;margin:16px 0 0;color:#4b564a;font-size:.84rem">New here? <button id="nsseShowCreate" style="border:0;background:none;color:#125c30;font-weight:700;cursor:pointer;padding:0">Create account</button></p></div></div>';
+      o.innerHTML='<div class="nsse-login-card"><button class="nsse-login-close" id="nsseLoginClose">×</button><img class="nsse-login-logo" src="assets/images/logo.png"><div id="nsseAuthCreateView"><h2>Create your account</h2><button class="nsse-google-btn" id="nsseGoogleSignup"><span style="font-size:18px">G</span> Sign up with Google</button><div class="nsse-auth-divider">or create with email</div><p class="nsse-login-sub">Please provide your details. Only Gmail addresses are accepted.</p><div class="nsse-auth-error" id="nsseCreateError"></div><div class="nsse-auth-success" id="nsseCreateSuccess"></div><input class="nsse-auth-input" id="nsseSignupName" type="text" autocomplete="name" placeholder="Full name"><input class="nsse-auth-input" id="nsseSignupFather" type="text" placeholder="Father name"><input class="nsse-auth-input" id="nsseSignupWp" type="tel" placeholder="WhatsApp number"><input class="nsse-auth-input" id="nsseSignupEmail" type="email" autocomplete="email" placeholder="Gmail address"><input class="nsse-auth-input" id="nsseSignupPassword" type="password" autocomplete="new-password" placeholder="Password"><input class="nsse-auth-input" id="nsseSignupPassword2" type="password" autocomplete="new-password" placeholder="Confirm password"><button class="btn btn-primary" style="width:100%;margin-top:4px" id="nsseEmailSignup">Create account</button><p style="text-align:center;margin:16px 0 0;color:#4b564a;font-size:.84rem">Already have a verified account? <button id="nsseShowLogin" style="border:0;background:none;color:#125c30;font-weight:700;cursor:pointer;padding:0">Login</button></p></div><div id="nsseAuthLoginView" style="display:none"><h2>Login to your account</h2><button class="nsse-google-btn" id="nsseGoogleLogin"><span style="font-size:18px">G</span> Sign in with Google</button><div class="nsse-auth-divider">or login with email</div><p class="nsse-login-sub">Only a previously verified NSSE account can log in.</p><div class="nsse-auth-error" id="nsseAuthError"></div><div class="nsse-auth-success" id="nsseLoginSuccess"></div><input class="nsse-auth-input" id="nsseEmail" type="email" autocomplete="email" placeholder="Gmail address"><input class="nsse-auth-input" id="nssePassword" type="password" autocomplete="current-password" placeholder="Password"><button class="btn btn-primary" style="width:100%;margin-top:4px" id="nsseEmailLogin">Login</button><button id="nsseResendVerification" style="display:none;width:100%;margin-top:9px;border:1px solid #cfe2c5;background:#f7fbf4;color:#125c30;border-radius:10px;padding:9px 12px;font-weight:700;cursor:pointer">Resend verification email</button><p style="text-align:center;margin:16px 0 0;color:#4b564a;font-size:.84rem">New here? <button id="nsseShowCreate" style="border:0;background:none;color:#125c30;font-weight:700;cursor:pointer;padding:0">Create account</button></p></div></div>';
       document.body.appendChild(o);
     }
     if(!document.getElementById('nsseProfilePanel')){
@@ -814,7 +814,7 @@ function renderPreview(items){
       'auth/user-not-found':'No verified account was found for this Gmail address. Please create an account first.',
       'auth/wrong-password':'The Gmail address or password is incorrect.',
       'auth/invalid-credential':'The Gmail address or password is incorrect.',
-      'auth/email-already-in-use':'This Gmail address already has an account. Please use Login instead.',
+      'auth/email-already-in-use':'This Gmail address has a pending or existing account. We will check its verification status.',
       'auth/weak-password':'Password must be at least 6 characters long.',
       'auth/too-many-requests':'Too many login attempts. Please wait a little and try again.',
       'auth/network-request-failed':'Network error. Please check your internet connection and try again.',
@@ -827,6 +827,7 @@ function renderPreview(items){
     const create=document.getElementById('nsseAuthCreateView'),login=document.getElementById('nsseAuthLoginView');
     if(create)create.style.display=mode==='create'?'block':'none';
     if(login)login.style.display=mode==='login'?'block':'none';
+    const resend=document.getElementById('nsseResendVerification');if(resend)resend.style.display='none';
     ['nsseCreateError','nsseCreateSuccess','nsseAuthError','nsseLoginSuccess'].forEach(id=>{const x=document.getElementById(id);if(x){x.style.display='none';x.textContent=''}});
   }
   function showAuthMessage(id,msg,success){
@@ -839,6 +840,27 @@ function renderPreview(items){
   }
   function profileFields(){return {name:document.getElementById('nsseSignupName')?.value.trim()||'',fatherName:document.getElementById('nsseSignupFather')?.value.trim()||'',whatsapp:document.getElementById('nsseSignupWp')?.value.trim()||''}}
   function validProfile(d){return !!(d.name&&d.fatherName&&d.whatsapp)}
+  const NSSE_PENDING_SIGNUP_KEY='nsse_pending_signup_v3';
+  function savePendingSignup(email,d){try{localStorage.setItem(NSSE_PENDING_SIGNUP_KEY,JSON.stringify({email:String(email||'').trim().toLowerCase(),...d,savedAt:Date.now()}))}catch(e){console.warn(e)}}
+  function getPendingSignup(email){try{const d=JSON.parse(localStorage.getItem(NSSE_PENDING_SIGNUP_KEY)||'null');return d&&d.email===String(email||'').trim().toLowerCase()?d:null}catch(e){return null}}
+  function clearPendingSignup(){try{localStorage.removeItem(NSSE_PENDING_SIGNUP_KEY)}catch(e){}}
+  function verificationNotice(){return 'Check your Gmail inbox and Spam/Junk folder for the NSSE verification email. You must verify your email before your account becomes active.'}
+  async function sendVerificationAndLogout(user,email,profile){
+    try{
+      savePendingSignup(email,profile);
+      await user.sendEmailVerification();
+      localStorage.setItem(NSSE_KNOWN_ACCOUNT_KEY,'1');
+      await auth.signOut();
+      showAuthMessage('nsseCreateSuccess','Verification email sent successfully. '+verificationNotice(),true);
+      document.getElementById('nsseSignupPassword').value='';
+      document.getElementById('nsseSignupPassword2').value='';
+      return true;
+    }catch(e){
+      try{await user.delete()}catch(delErr){console.warn('Could not remove unverified user after email-send failure',delErr)}
+      clearPendingSignup();
+      throw e;
+    }
+  }
   async function saveUserProfile(user,d){
     await db.collection('users').doc(user.uid).set({name:d.name,fatherName:d.fatherName,whatsapp:d.whatsapp,email:user.email||'',uid:user.uid,updatedAt:firebase.firestore.FieldValue.serverTimestamp(),createdAt:firebase.firestore.FieldValue.serverTimestamp()},{merge:true});
   }
@@ -894,36 +916,92 @@ function renderPreview(items){
       if(password.length<6){showAuthMessage('nsseCreateError','Password must be at least 6 characters long.',false);return}
       if(password!==password2){showAuthMessage('nsseCreateError','Passwords do not match.',false);return}
       try{
-        const cred=await auth.createUserWithEmailAndPassword(email,password);
-        await saveUserProfile(cred.user,profile);
-        await cred.user.sendEmailVerification();
-        localStorage.setItem(NSSE_KNOWN_ACCOUNT_KEY,'1');
-        await auth.signOut();
-        showAuthMessage('nsseCreateSuccess','Account registration started. We sent a verification link to your Gmail. Verify your email before logging in.',true);
-        document.getElementById('nsseSignupPassword').value='';
-        document.getElementById('nsseSignupPassword2').value='';
+        let cred;
+        try{
+          cred=await auth.createUserWithEmailAndPassword(email,password);
+        }catch(createErr){
+          if(createErr&&createErr.code==='auth/email-already-in-use'){
+            // Existing Firebase Auth user may only be a pending, unverified registration.
+            // Re-authenticate only to resend verification; never grant access here.
+            try{
+              cred=await auth.signInWithEmailAndPassword(email,password);
+              await cred.user.reload();
+              if(!cred.user.emailVerified){
+                await sendVerificationAndLogout(cred.user,email,profile);
+                showAuthMessage('nsseCreateSuccess','Your previous registration is still waiting for email verification. A new verification email has been sent. '+verificationNotice(),true);
+                return;
+              }
+              await auth.signOut();
+              showAuthMessage('nsseCreateError','This Gmail address is already verified and registered. Please use Login instead.',false);
+              return;
+            }catch(reAuthErr){
+              if(reAuthErr&&reAuthErr.code==='auth/wrong-password') throw reAuthErr;
+              throw createErr;
+            }
+          }
+          throw createErr;
+        }
+        // IMPORTANT: do not create the NSSE profile until the email has been verified.
+        await sendVerificationAndLogout(cred.user,email,profile);
       }catch(e){showAuthMessage('nsseCreateError',friendlyAuthError(e,'signup'),false)}
     };
 
-    document.getElementById('nsseEmailLogin').onclick=async()=>{
-      const email=document.getElementById('nsseEmail').value.trim().toLowerCase();
-      const password=document.getElementById('nssePassword').value;
-      if(!isAllowedGmail(email)){showAuthMessage('nsseAuthError','Only @gmail.com email addresses are allowed.',false);return}
-      if(!password){showAuthMessage('nsseAuthError','Please enter your password.',false);return}
+    async function loginWithEmail(email,password,sourceId){
       try{
         const cred=await auth.signInWithEmailAndPassword(email,password);
         await cred.user.reload();
         const user=auth.currentUser;
         if(!user.emailVerified){
-          await auth.signOut();
-          showAuthMessage('nsseAuthError','Your email is not verified yet. Open the verification link sent to your Gmail, then try logging in again.',false);
+          try{
+            await user.sendEmailVerification();
+            await auth.signOut();
+            showAuthMessage(sourceId,'Your email is not verified yet. A new verification email has been sent. '+verificationNotice(),true);
+            const resend=document.getElementById('nsseResendVerification');if(resend)resend.style.display='block';
+          }catch(sendErr){
+            await auth.signOut().catch(()=>{});
+            showAuthMessage(sourceId,'Your email is not verified yet, and we could not send the verification email right now. Please try again in a moment.',false);
+          }
           return;
         }
-        const profile=await getUserProfile(user.uid);
-        if(!profile){await auth.signOut();showAuthMessage('nsseAuthError','This account has not completed NSSE signup. Please create your account first.',false);return}
+        let profile=await getUserProfile(user.uid);
+        if(!profile){
+          const pending=getPendingSignup(email);
+          if(pending&&validProfile(pending)){
+            await saveUserProfile(user,pending);
+            clearPendingSignup();
+            profile=await getUserProfile(user.uid);
+          }
+        }
+        if(!profile){
+          await auth.signOut();
+          showAuthMessage(sourceId,'Your Gmail is verified, but the NSSE signup profile is incomplete. Please complete Create Account first.',false);
+          setAuthView('create');
+          return;
+        }
         localStorage.setItem(NSSE_KNOWN_ACCOUNT_KEY,'1');
+        document.getElementById('nsseResendVerification').style.display='none';
         close(); await showProfile();
-      }catch(e){showAuthMessage('nsseAuthError',friendlyAuthError(e,'login'),false)}
+      }catch(e){showAuthMessage(sourceId,friendlyAuthError(e,'login'),false)}
+    }
+    document.getElementById('nsseEmailLogin').onclick=async()=>{
+      const email=document.getElementById('nsseEmail').value.trim().toLowerCase();
+      const password=document.getElementById('nssePassword').value;
+      if(!isAllowedGmail(email)){showAuthMessage('nsseAuthError','Only @gmail.com email addresses are allowed.',false);return}
+      if(!password){showAuthMessage('nsseAuthError','Please enter your password.',false);return}
+      await loginWithEmail(email,password,'nsseAuthError');
+    };
+    document.getElementById('nsseResendVerification').onclick=async()=>{
+      const email=document.getElementById('nsseEmail').value.trim().toLowerCase();
+      const password=document.getElementById('nssePassword').value;
+      if(!isAllowedGmail(email)||!password){showAuthMessage('nsseAuthError','Enter your Gmail and password first so we can securely resend the verification email.',false);return}
+      try{
+        const cred=await auth.signInWithEmailAndPassword(email,password);
+        await cred.user.reload();
+        if(cred.user.emailVerified){await auth.signOut();showAuthMessage('nsseAuthError','This email is already verified. You can log in normally.',false);return}
+        await cred.user.sendEmailVerification();
+        await auth.signOut();
+        showAuthMessage('nsseAuthError','Verification email sent. '+verificationNotice(),true);
+      }catch(e){await auth.signOut().catch(()=>{});showAuthMessage('nsseAuthError',friendlyAuthError(e,'login'),false)}
     };
 
     if(isMain){
