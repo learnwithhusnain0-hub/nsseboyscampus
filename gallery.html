@@ -322,61 +322,6 @@ button{font-family:inherit;cursor:pointer;}
 </footer>
 <script>
 
-// ---------------------------------------------------------------
-// FIREBASE CONFIG (same block appears on every page)
-// ---------------------------------------------------------------
-const firebaseConfig = {
-  apiKey: "AIzaSyDBOiqL8Rm_Hw-Zracl8hME0tZCi2RaLyI",
-  authDomain: "nsse-boys-campus-hnd.firebaseapp.com",
-  projectId: "nsse-boys-campus-hnd",
-  storageBucket: "nsse-boys-campus-hnd.firebasestorage.app",
-  messagingSenderId: "985937404240",
-  appId: "1:985937404240:web:bdf0d804154918e37c4c55",
-  measurementId: "G-8R81EC8TW2"
-};
-window.__FIREBASE_READY__ = false;
-if (firebaseConfig.apiKey !== "YOUR_API_KEY") {
-  try {
-    firebase.initializeApp(firebaseConfig);
-    window.db = firebase.firestore();
-    window.auth = firebase.auth();
-    window.__FIREBASE_READY__ = true;
-  } catch (err) {
-    console.error("Firebase could not initialize:", err);
-  }
-} else {
-  console.warn("Firebase config is still a placeholder — update the firebaseConfig block in this file.");
-}
-
-</script>
-<script>
-
-(async function(){
-  if(!window.__FIREBASE_READY__ || !window.db) { window.__SITE_CONTENT_LOADED__ = true; return; }
-  try{
-    var snap = await db.collection('siteContent').doc('main').get();
-    if(snap.exists){
-      var data = snap.data();
-      Object.keys(data).forEach(function(key){
-        var val = data[key];
-        if(val === undefined || val === null || val === '') return;
-        document.querySelectorAll('[data-cms="' + key + '"]').forEach(function(el){
-          el.textContent = val;
-        });
-        document.querySelectorAll('[data-cms-href="' + key + '"]').forEach(function(el){
-          if(key === 'phone') el.setAttribute('href', 'tel:' + val.replace(/[^0-9+]/g,''));
-          if(key === 'email') el.setAttribute('href', 'mailto:' + val);
-        });
-      });
-    }
-  }catch(err){ console.warn('Site content could not load:', err); }
-  window.__SITE_CONTENT_LOADED__ = true;
-  document.dispatchEvent(new Event('sitecontentloaded'));
-})();
-
-</script>
-<script>
-
 // Scroll reveal / swipe animations
 (function(){
   var els = document.querySelectorAll('.reveal, .swipe-left, .swipe-right');
@@ -535,6 +480,28 @@ else{ document.addEventListener('sitecontentloaded', runCounters, {once:true}); 
     try{const s=await db.collection('replies').where('userId','==',uid).orderBy('createdAt','desc').limit(30).get();return s.docs.map(x=>({id:x.id,...x.data()}))}
     catch(e){try{const s=await db.collection('replies').where('userId','==',uid).get();return s.docs.map(x=>({id:x.id,...x.data()}))}catch(_){return[]}}
   }
+  async function loadGalleryImages(){
+    if(!window.db) return [];
+    try{
+      const s=await db.collection('gallery').orderBy('order','asc').get();
+      return s.docs.map(d=>({id:d.id,...d.data()}));
+    }catch(e){
+      try{
+        const s=await db.collection('gallery').orderBy('createdAt','desc').get();
+        return s.docs.map(d=>({id:d.id,...d.data()}));
+      }catch(_){ return []; }
+    }
+  }
+  function galleryCardHTML(x){
+    return '<div class="gallery-card"><img src="'+esc(x.url||'')+'" alt="'+esc(x.title||'School gallery photo')+'" loading="lazy">'+
+      (x.title||x.desc?'<div class="gc-body">'+(x.title?'<h3>'+esc(x.title)+'</h3>':'')+(x.desc?'<p>'+esc(x.desc)+'</p>':'')+'</div>':'')+
+      '</div>';
+  }
+  async function renderGalleryGrid(){
+    const grid=document.getElementById('galleryGrid');if(!grid)return;
+    const images=await loadGalleryImages();
+    grid.innerHTML=images.length?images.map(galleryCardHTML).join(''):'<div class="empty-state">No gallery images have been added yet.</div>';
+  }
   function bellHTML(a){
     return '<div class="nsse-bell-item" data-ann-id="'+esc(a.id)+'" title="Open announcement"><small>'+esc(a.category||'General')+' · '+esc(a.date||'')+'</small><div style="font-weight:700;margin-top:3px">'+esc(a.title||'')+'</div><div style="font-size:.84rem;color:#4b564a;margin-top:4px">'+esc(a.body||'')+'</div></div>';
   }
@@ -610,6 +577,7 @@ else{ document.addEventListener('sitecontentloaded', runCounters, {once:true}); 
       const formBox=document.getElementById('nsseAdmissionFormDownload');
       if(formBox){try{const s=await db.collection('siteContent').doc('main').get();const d=s.exists?s.data():{};if(d.admissionFormUrl){formBox.href=d.admissionFormUrl;formBox.style.display='inline-flex';}if(d.admissionFormTitle){formBox.textContent=d.admissionFormTitle}}catch(e){}}
     }
+    if(page==='gallery')renderGalleryGrid();
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();
