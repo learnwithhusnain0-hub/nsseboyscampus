@@ -109,7 +109,7 @@ button{font-family:inherit;cursor:pointer;}
 @media (prefers-reduced-motion:reduce){.word-anim span{animation:none;transform:translateY(0);}}
 
 
-.site-header{position:sticky;top:0;z-index:100;background:rgba(251,252,250,.97);border-bottom:1px solid var(--line);}
+.site-header{position:sticky;top:0;z-index:170;background:rgba(251,252,250,.97);border-bottom:1px solid var(--line);}
 .topbar{background:var(--green-900);color:#cfe1d1;font-size:.78rem;}
 .topbar .container{display:flex;justify-content:space-between;align-items:center;padding:7px 24px;flex-wrap:wrap;gap:6px;}
 .topbar a{color:#cfe1d1;}
@@ -485,12 +485,21 @@ button{font-family:inherit;cursor:pointer;}
 (function(){
   var toggle = document.getElementById('navToggle');
   var links = document.getElementById('navLinks');
+  var flyingLogo = document.getElementById('flyingLogo');
   if(!toggle || !links) return;
+  function setFlyingLogoHidden(hidden){
+    // The animated header logo is position:fixed and can float on top of
+    // the fullscreen mobile menu, so hide it while the menu is open.
+    if(!flyingLogo) return;
+    flyingLogo.style.opacity = hidden ? '0' : '';
+    flyingLogo.style.visibility = hidden ? 'hidden' : '';
+  }
   toggle.addEventListener('click', function(){
     var open = links.classList.toggle('open');
     toggle.classList.toggle('active', open);
     toggle.setAttribute('aria-expanded', String(open));
     document.body.style.overflow = open ? 'hidden' : '';
+    setFlyingLogoHidden(open);
   });
   links.querySelectorAll('a').forEach(function(a){
     a.addEventListener('click', function(){
@@ -498,6 +507,7 @@ button{font-family:inherit;cursor:pointer;}
       toggle.classList.remove('active');
       toggle.setAttribute('aria-expanded','false');
       document.body.style.overflow = '';
+      setFlyingLogoHidden(false);
     });
   });
 })();
@@ -589,6 +599,7 @@ function renderPreview(items){
   if(!heroPlaceholder || !headerLogo || !flying) return;
 
   var startRect, endRect, heroHeight;
+  flying.style.transformOrigin = 'top left';
 
   function measure(){
     startRect = heroPlaceholder.getBoundingClientRect();
@@ -600,33 +611,44 @@ function renderPreview(items){
     flying.dataset.startLeft = absoluteStart.left;
     flying.dataset.startWidth = absoluteStart.width;
     flying.dataset.startHeight = absoluteStart.height;
+    // Fix the element's actual box size ONCE at its largest (hero) size.
+    // Shrinking is done afterwards with a CSS transform:scale() instead
+    // of changing width/height on every scroll tick -- repeatedly
+    // resizing the raster image is what caused the pixelated/scrambled
+    // flicker while scrolling.
+    flying.style.width = absoluteStart.width + 'px';
+    flying.style.height = absoluteStart.height + 'px';
   }
 
+  var rafPending = false;
   function update(){
+    rafPending = false;
     var scrollY = window.scrollY || window.pageYOffset;
     var t = Math.min(Math.max(scrollY / (heroHeight * 0.55), 0), 1);
     var eased = t * (2 - t); // ease-out
     var sTop = parseFloat(flying.dataset.startTop) - scrollY;
     var sLeft = parseFloat(flying.dataset.startLeft);
     var sWidth = parseFloat(flying.dataset.startWidth);
-    var sHeight = parseFloat(flying.dataset.startHeight);
-    var eTop = endRect.top, eLeft = endRect.left, eWidth = endRect.width, eHeight = endRect.height;
+    var eTop = endRect.top, eLeft = endRect.left, eWidth = endRect.width;
 
     var top = sTop + (eTop - sTop) * eased;
     var left = sLeft + (eLeft - sLeft) * eased;
-    var width = sWidth + (eWidth - sWidth) * eased;
-    var height = sHeight + (eHeight - sHeight) * eased;
+    var scale = 1 + ((eWidth / sWidth) - 1) * eased;
 
     flying.style.top = top + 'px';
     flying.style.left = left + 'px';
-    flying.style.width = width + 'px';
-    flying.style.height = height + 'px';
+    flying.style.transform = 'scale(' + scale + ')';
     flying.style.opacity = '1';
+  }
+  function onScroll(){
+    if(rafPending) return;
+    rafPending = true;
+    requestAnimationFrame(update);
   }
 
   window.addEventListener('load', function(){ measure(); update(); });
   window.addEventListener('resize', function(){ measure(); update(); });
-  window.addEventListener('scroll', update, {passive:true});
+  window.addEventListener('scroll', onScroll, {passive:true});
   measure(); update();
 })();
 
