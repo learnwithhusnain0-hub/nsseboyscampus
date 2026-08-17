@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Announcements -- Nawaz Sharif School of Eminence</title>
+<meta content="Latest announcements from Nawaz Sharif School of Eminence." name="description"/>
+<link href="assets/images/logo.png" rel="icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&amp;family=Sora:wght@600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+
+:root{
+  --green-900:#062e1a;
+  --green-800:#0b4423;
+  --green-700:#125c30;
+  --green-500:#3f8f4f;
+  --lime-500:#8bc540;
+  --lime-400:#a4d65e;
+  --paper:#fbfcfa;
+  --paper-dim:#f2f5f0;
+  --ink:#12180f;
+  --ink-soft:#4b564a;
+  --line:#e2e8de;
+  --gold:#c9a227;
+
+  --font-display:'Sora','Segoe UI',sans-serif;
+  --font-body:'Inter','Segoe UI',sans-serif;
+  --font-script:'Caveat',cursive;
+
+  --radius-sm:8px;
+  --radius-md:14px;
+  --radius-lg:24px;
+  --shadow-sm:0 1px 2px rgba(6,46,26,.06),0 1px 1px rgba(6,46,26,.04);
+  --shadow-md:0 8px 24px rgba(6,46,26,.10);
+  --shadow-lg:0 20px 48px rgba(6,46,26,.16);
+  --container:1180px;
+}
+*,*::before,*::after{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important;}
+}
+body{margin:0;font-family:var(--font-body);color:var(--ink);background:var(--paper);line-height:1.6;-webkit-font-smoothing:antialiased;}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+ul{margin:0;padding:0;list-style:none;}
+h1,h2,h3,h4{font-family:var(--font-display);margin:0 0 .5em;font-weight:700;letter-spacing:-.01em;color:var(--green-900);}
+p{margin:0 0 1em;}
+button{font-family:inherit;cursor:pointer;}
+:focus-visible{outline:3px solid var(--lime-500);outline-offset:2px;border-radius:4px;}
+.container{max-width:var(--container);margin:0 auto;padding:0 24px;}
+.script-text{font-family:var(--font-script);font-weight:600;font-size:1.4em;color:var(--lime-500);line-height:1;}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--green-700);}
+.eyebrow::before{content:'';width:18px;height:2px;background:var(--lime-500);display:inline-block;border-radius:2px;}
+.section{padding:88px 0;}
+.section--tight{padding:56px 0;}
+.section--alt{background:var(--paper-dim);}
+.section-head{max-width:640px;margin-bottom:48px;}
+.section-head p{color:var(--ink-soft);font-size:1.05rem;}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 26px;border-radius:999px;font-weight:600;font-size:.95rem;border:1.5px solid transparent;transition:transform .15s ease,box-shadow .15s ease,background .15s ease,color .15s ease;}
+.btn:hover{transform:translateY(-2px);}
+.btn-primary{background:var(--green-800);color:#fff;box-shadow:var(--shadow-sm);}
+.btn-primary:hover{background:var(--green-700);box-shadow:var(--shadow-md);}
+.btn-accent{background:var(--lime-500);color:var(--green-900);}
+.btn-accent:hover{background:var(--lime-400);box-shadow:var(--shadow-md);}
+.btn-ghost{background:transparent;border-color:rgba(255,255,255,.55);color:#fff;}
+.btn-ghost:hover{background:rgba(255,255,255,.12);}
+.btn-outline{background:transparent;border-color:var(--green-800);color:var(--green-800);}
+.btn-outline:hover{background:var(--green-800);color:#fff;}
+.btn-sm{padding:9px 18px;font-size:.85rem;}
+.btn-danger{background:#b3261e;color:#fff;}
+.btn-danger:hover{background:#8f1e17;}
+.grid{display:grid;gap:26px;}
+.grid-3{grid-template-columns:repeat(3,1fr);}
+.grid-4{grid-template-columns:repeat(4,1fr);}
+.grid-2{grid-template-columns:repeat(2,1fr);}
+@media (max-width:900px){.grid-3,.grid-4{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:600px){.grid-3,.grid-4,.grid-2{grid-template-columns:1fr;}}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius-md);padding:28px;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);border-color:transparent;}
+.card .icon-badge{width:48px;height:48px;border-radius:12px;background:var(--paper-dim);display:flex;align-items:center;justify-content:center;margin-bottom:16px;color:var(--green-800);}
+.card h3{font-size:1.08rem;margin-bottom:8px;}
+.card p{color:var(--ink-soft);font-size:.94rem;margin-bottom:0;}
+.pill{display:inline-block;padding:5px 13px;border-radius:999px;background:var(--paper-dim);color:var(--green-700);font-size:.76rem;font-weight:700;letter-spacing:.03em;}
+.quill-divider{display:flex;align-items:center;gap:14px;margin:0 0 40px;color:var(--green-700);}
+.quill-divider svg{width:34px;height:34px;flex-shrink:0;}
+.quill-divider .line{flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent);}
+.timeline{position:relative;padding-left:32px;border-left:2px solid var(--line);}
+.timeline-item{position:relative;padding-bottom:32px;}
+.timeline-item::before{content:'';position:absolute;left:-38px;top:2px;width:14px;height:14px;border-radius:50%;background:var(--lime-500);border:3px solid var(--paper);box-shadow:0 0 0 2px var(--lime-500);}
+.timeline-item h3{font-size:1rem;margin-bottom:4px;}
+.timeline-item p{color:var(--ink-soft);font-size:.92rem;margin:0;}
+
+/* ---------- Animations: swipe reveal + staggered text ---------- */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1);}
+.reveal.is-visible{opacity:1;transform:translateY(0);}
+.swipe-left{opacity:0;transform:translateX(-36px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1);}
+.swipe-left.is-visible{opacity:1;transform:translateX(0);}
+.swipe-right{opacity:0;transform:translateX(36px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1);}
+.swipe-right.is-visible{opacity:1;transform:translateX(0);}
+.stagger > *{transition-delay:calc(var(--i,0) * 90ms);}
+.word-anim{display:inline-block;overflow:hidden;vertical-align:top;}
+.word-anim span{display:inline-block;transform:translateY(115%);animation:wordUp .7s cubic-bezier(.2,.7,.3,1) forwards;animation-delay:calc(var(--i,0) * 70ms);}
+@keyframes wordUp{to{transform:translateY(0);}}
+@media (prefers-reduced-motion:reduce){.word-anim span{animation:none;transform:translateY(0);}}
+
+
+.site-header{position:sticky;top:0;z-index:100;background:rgba(251,252,250,.97);border-bottom:1px solid var(--line);}
+.topbar{background:var(--green-900);color:#cfe1d1;font-size:.78rem;}
+.topbar .container{display:flex;justify-content:space-between;align-items:center;padding:7px 24px;flex-wrap:wrap;gap:6px;}
+.topbar a{color:#cfe1d1;}
+.topbar a:hover{color:var(--lime-400);}
+.topbar-item{display:flex;align-items:center;gap:6px;}
+.badge-free{background:var(--lime-500);color:var(--green-900);font-weight:800;font-size:.7rem;padding:2px 10px;border-radius:999px;letter-spacing:.03em;}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:12px 0;}
+.brand{display:flex;align-items:center;gap:12px;font-family:var(--font-display);font-weight:700;color:var(--green-900);}
+.brand img{width:46px;height:46px;border-radius:50%;}
+.brand-text{line-height:1.15;}
+.brand-text .name{display:block;font-size:.95rem;}
+.brand-text .tag{display:block;font-size:.68rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--green-700);}
+.nav-links{display:flex;align-items:center;gap:2px;}
+.nav-links a{padding:10px 14px;border-radius:999px;font-size:.92rem;font-weight:600;color:var(--ink-soft);transition:background .15s ease,color .15s ease;white-space:nowrap;}
+.nav-links a:hover,.nav-links a.active{background:var(--paper-dim);color:var(--green-800);}
+.nav-actions{display:flex;align-items:center;gap:10px;}
+.nav-toggle{display:none;background:none;border:none;padding:8px;}
+.nav-toggle span{display:block;width:24px;height:2px;background:var(--green-900);margin:5px 0;border-radius:2px;transition:transform .2s ease,opacity .2s ease;}
+.nav-toggle.active span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.nav-toggle.active span:nth-child(2){opacity:0;}
+.nav-toggle.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+@media (max-width:960px){
+  .nav-links{position:fixed;top:0;left:0;right:0;bottom:0;height:100vh;height:100dvh;padding-top:104px;z-index:150;background:var(--paper);flex-direction:column;align-items:stretch;padding-left:20px;padding-right:20px;padding-bottom:20px;gap:4px;transform:translateY(-16px);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .22s ease,transform .22s ease,visibility .22s;overflow-y:auto;}
+  .nav-links.open{opacity:1;transform:translateY(0);visibility:visible;pointer-events:auto;}
+  .nav-links a{padding:16px 18px;font-size:1.05rem;border-bottom:1px solid var(--line);}
+  .nav-toggle{display:block;position:relative;z-index:160;}
+  .nav-actions .hide-mobile{display:none;}
+}
+.hero{position:relative;overflow:hidden;background:radial-gradient(120% 140% at 15% -10%,#123f24 0%,var(--green-900) 55%,#04160c 100%);color:#fff;padding:80px 0 100px;}
+.hero::before{content:'';position:absolute;inset:0;opacity:.10;pointer-events:none;background-image:radial-gradient(circle at 85% 20%,var(--lime-500) 0,transparent 40%),radial-gradient(circle at 8% 85%,var(--lime-500) 0,transparent 35%);}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center;position:relative;}
+.hero-script{color:var(--lime-400);font-family:var(--font-script);font-size:1.7rem;display:block;margin-bottom:2px;}
+.hero-eyebrow{color:var(--lime-400);font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.8rem;display:flex;align-items:center;gap:8px;}
+.hero-eyebrow::before{content:'';width:18px;height:2px;background:var(--lime-400);}
+.hero h1{color:#fff;font-size:clamp(2.1rem,4.2vw,3.3rem);line-height:1.08;margin:10px 0 18px;max-width:16ch;}
+.hero .lead{color:#dce9de;font-size:1.12rem;max-width:52ch;margin-bottom:32px;}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:44px;}
+.hero-stats{display:flex;gap:36px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.16);padding-top:26px;}
+.hero-stats .stat b{display:block;font-family:var(--font-display);font-size:1.6rem;color:#fff;}
+.hero-stats .stat span{font-size:.82rem;color:#b9ccbb;}
+.hero-art{position:relative;display:flex;align-items:center;justify-content:center;animation:float 6s ease-in-out infinite;}
+.hero-art img{width:min(320px,80%);filter:drop-shadow(0 24px 40px rgba(0,0,0,.4));}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@media (max-width:900px){.hero-grid{grid-template-columns:1fr;}.hero-art{order:-1;margin-bottom:8px;}.hero-art img{width:190px;}}
+.ticker-bar{background:var(--paper-dim);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+.ticker-inner{display:flex;align-items:center;gap:16px;padding:12px 0;}
+.ticker-label{flex-shrink:0;display:flex;align-items:center;gap:8px;font-weight:700;font-size:.82rem;color:var(--green-800);text-transform:uppercase;letter-spacing:.04em;}
+.ticker-label .dot{width:8px;height:8px;border-radius:50%;background:#e05a3f;animation:pulse 1.6s ease-in-out infinite;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.ticker-track{overflow:hidden;flex:1;}
+.ticker-items{display:flex;gap:48px;white-space:nowrap;animation:ticker 28s linear infinite;width:max-content;}
+.ticker-items span{font-size:.9rem;color:var(--ink-soft);}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.stat-band{background:var(--green-800);color:#fff;padding:52px 0;}
+.stat-band .grid{text-align:center;}
+.stat-band b{display:block;font-family:var(--font-display);font-size:2.2rem;color:var(--lime-400);}
+.stat-band span{font-size:.85rem;color:#cfe1d1;}
+.cta-band{background:linear-gradient(120deg,var(--green-800),var(--green-900));color:#fff;border-radius:var(--radius-lg);padding:56px;text-align:center;position:relative;overflow:hidden;}
+.cta-band h2{color:#fff;}
+.cta-band p{color:#d7e6d8;max-width:52ch;margin-left:auto;margin-right:auto;}
+.cta-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:22px;}
+.principal-section{display:grid;grid-template-columns:.8fr 1.2fr;gap:52px;align-items:center;}
+@media (max-width:860px){.principal-section{grid-template-columns:1fr;}}
+.principal-photo{position:relative;justify-self:center;}
+.principal-photo .frame{width:260px;height:260px;border-radius:50%;background:linear-gradient(145deg,var(--green-700),var(--green-900));display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-lg);border:6px solid #fff;overflow:hidden;}
+.principal-photo .frame img{width:100%;height:100%;object-fit:cover;}
+.principal-photo .frame .initials{font-family:var(--font-display);font-size:3.4rem;color:#fff;font-weight:700;}
+.principal-photo .ring{position:absolute;inset:-14px;border:2px dashed var(--lime-500);border-radius:50%;opacity:.6;}
+.principal-quote{font-family:var(--font-script);font-size:1.6rem;line-height:1.4;color:var(--green-800);margin-bottom:18px;}
+.principal-signature{font-family:var(--font-script);font-size:1.7rem;color:var(--green-700);margin-top:6px;}
+.principal-name{font-weight:700;color:var(--green-900);margin-bottom:0;}
+.principal-role{color:var(--ink-soft);font-size:.85rem;}
+.announcement-card{display:flex;gap:20px;background:#fff;border:1px solid var(--line);border-left:4px solid var(--lime-500);border-radius:var(--radius-sm);padding:22px 24px;margin-bottom:16px;}
+.announcement-card .date-badge{flex-shrink:0;width:64px;text-align:center;font-family:var(--font-display);}
+.announcement-card .date-badge .d{font-size:1.5rem;font-weight:700;color:var(--green-800);line-height:1;}
+.announcement-card .date-badge .m{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-soft);}
+.announcement-card h3{font-size:1.05rem;margin-bottom:6px;}
+.announcement-card p{color:var(--ink-soft);font-size:.92rem;margin-bottom:6px;}
+.announcement-card .tag{font-size:.72rem;font-weight:700;color:var(--green-700);text-transform:uppercase;letter-spacing:.05em;}
+.announcement-card.pinned{border-left-color:var(--gold);background:#fffdf4;}
+.empty-state{text-align:center;padding:56px 24px;color:var(--ink-soft);border:1.5px dashed var(--line);border-radius:var(--radius-md);}
+.loading-row{display:flex;align-items:center;gap:10px;color:var(--ink-soft);padding:24px 0;}
+.spinner{width:18px;height:18px;border:2.5px solid var(--line);border-top-color:var(--green-700);border-radius:50%;animation:spin .7s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
+.person-card{text-align:center;}
+.person-card .avatar{width:88px;height:88px;border-radius:50%;margin:0 auto 14px;background:var(--paper-dim);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;color:var(--green-800);font-size:1.4rem;border:3px solid #fff;box-shadow:var(--shadow-sm);}
+.person-card h3{margin-bottom:2px;font-size:1rem;}
+.person-card .role{color:var(--green-700);font-size:.82rem;font-weight:600;margin-bottom:8px;display:block;}
+.person-card p{font-size:.86rem;color:var(--ink-soft);}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;}
+@media (max-width:840px){.contact-grid{grid-template-columns:1fr;}}
+.contact-info .item{display:flex;gap:16px;margin-bottom:22px;}
+.contact-info .icon{width:44px;height:44px;border-radius:12px;background:var(--paper-dim);color:var(--green-800);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.contact-info h4{margin-bottom:2px;font-size:.98rem;}
+.contact-info p{color:var(--ink-soft);font-size:.92rem;margin-bottom:0;}
+.form-field{margin-bottom:18px;}
+.form-field label{display:block;font-size:.85rem;font-weight:600;margin-bottom:6px;color:var(--green-900);}
+.form-field input,.form-field textarea,.form-field select{width:100%;padding:12px 14px;border-radius:var(--radius-sm);border:1.5px solid var(--line);font-family:inherit;font-size:.95rem;background:#fff;transition:border-color .15s ease;}
+.form-field input:focus,.form-field textarea:focus,.form-field select:focus{border-color:var(--green-700);outline:none;}
+.form-field textarea{resize:vertical;min-height:120px;}
+.form-note{font-size:.82rem;color:var(--ink-soft);margin-top:10px;}
+.map-embed{border-radius:var(--radius-md);overflow:hidden;border:1px solid var(--line);margin-top:24px;}
+.map-embed iframe{width:100%;height:260px;border:0;display:block;}
+.site-footer{background:var(--green-900);color:#cfe1d1;padding:60px 0 24px;}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1.2fr;gap:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.1);}
+@media (max-width:840px){.footer-grid{grid-template-columns:1fr 1fr;}}
+@media (max-width:560px){.footer-grid{grid-template-columns:1fr;}}
+.footer-brand{display:flex;gap:12px;align-items:center;margin-bottom:14px;}
+.footer-brand img{width:44px;height:44px;border-radius:50%;}
+.footer-brand b{color:#fff;font-family:var(--font-display);font-size:1rem;display:block;}
+.footer-col h4{color:#fff;font-size:.85rem;letter-spacing:.05em;text-transform:uppercase;margin-bottom:16px;}
+.footer-col ul li{margin-bottom:10px;}
+.footer-col a{color:#b9ccbb;font-size:.9rem;transition:color .15s ease;}
+.footer-col a:hover{color:var(--lime-400);}
+.footer-col p{color:#a9c3ab;font-size:.9rem;}
+.footer-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-top:22px;font-size:.82rem;color:#8fa891;}
+.footer-bottom a{color:#8fa891;}
+.footer-bottom a:hover{color:var(--lime-400);}
+.page-header{background:linear-gradient(120deg,var(--green-900),var(--green-800));color:#fff;padding:60px 0 52px;}
+.page-header h1{color:#fff;margin-bottom:10px;font-size:clamp(1.8rem,3.4vw,2.6rem);}
+.page-header p{color:#cfe1d1;max-width:60ch;margin-bottom:0;}
+.breadcrumb{font-size:.82rem;color:#a9c3ab;margin-bottom:14px;}
+.breadcrumb a{color:#a9c3ab;}
+.breadcrumb a:hover{color:#fff;}
+
+
+</style>
+<style id="nsse-common-ui">
+.nsse-bell{position:relative;width:42px;height:42px;border:1px solid rgba(18,92,48,.25);background:#fff;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:#0b4423;cursor:pointer;transition:.2s}.nsse-bell:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(6,46,26,.12)}.nsse-bell svg{width:20px;height:20px}.nsse-bell .nsse-count{position:absolute;right:-2px;top:-3px;min-width:18px;height:18px;padding:0 5px;border-radius:999px;background:#8bc540;color:#062e1a;font:700 10px/18px Inter,sans-serif;text-align:center;display:none}.nsse-login-btn{border:0;background:transparent;color:inherit;font:inherit;font-weight:600;cursor:pointer}.nsse-login-overlay{position:fixed;inset:0;background:rgba(2,18,10,.58);backdrop-filter:blur(7px);display:none;align-items:center;justify-content:center;padding:20px;z-index:9999}.nsse-login-overlay.open{display:flex}.nsse-login-card{width:min(430px,100%);background:#fff;border-radius:24px;padding:34px;box-shadow:0 30px 90px rgba(0,0,0,.28);position:relative;transform:translateY(18px) scale(.97);opacity:0;animation:nsseLoginIn .45s cubic-bezier(.2,.7,.3,1) forwards}.nsse-login-card:before{content:'';position:absolute;inset:0 0 auto;height:5px;border-radius:24px 24px 0 0;background:linear-gradient(90deg,#8bc540,#125c30)}@keyframes nsseLoginIn{to{transform:none;opacity:1}}.nsse-login-close{position:absolute;right:14px;top:12px;width:34px;height:34px;border:0;background:#f2f5f0;border-radius:50%;font-size:22px;color:#4b564a;cursor:pointer}.nsse-login-logo{width:64px;height:64px;object-fit:contain;margin:0 auto 14px}.nsse-login-card h2{text-align:center;margin-bottom:5px}.nsse-login-sub{text-align:center;color:#4b564a;font-size:.88rem;margin-bottom:22px}.nsse-auth-input{width:100%;padding:12px 14px;border:1px solid #dfe7dc;border-radius:11px;margin-bottom:10px;font:inherit;outline:none}.nsse-auth-input:focus{border-color:#8bc540;box-shadow:0 0 0 3px rgba(139,197,64,.16)}.nsse-auth-error{display:none;background:#fdeceb;color:#a1261f;padding:10px 12px;border-radius:10px;font-size:.82rem;margin-bottom:12px}.nsse-google-btn{width:100%;padding:11px;border:1px solid #dfe7dc;background:#fff;border-radius:11px;font-weight:700;cursor:pointer;display:flex;justify-content:center;gap:9px;align-items:center}.nsse-auth-divider{display:flex;align-items:center;gap:10px;color:#778174;font-size:.75rem;margin:14px 0}.nsse-auth-divider:before,.nsse-auth-divider:after{content:'';height:1px;background:#e2e8de;flex:1}.nsse-auth-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}.nsse-bell-panel{position:fixed;right:22px;top:78px;width:min(410px,calc(100vw - 28px));max-height:70vh;overflow:auto;background:#fff;border:1px solid #e2e8de;border-radius:18px;box-shadow:0 20px 55px rgba(6,46,26,.18);z-index:9990;display:none}.nsse-bell-panel.open{display:block;animation:nssePanelIn .22s ease}@keyframes nssePanelIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}.nsse-bell-head{padding:16px 18px;border-bottom:1px solid #e2e8de;display:flex;justify-content:space-between;align-items:center}.nsse-bell-item{padding:15px 18px;border-bottom:1px solid #edf1eb}.nsse-bell-item:last-child{border-bottom:0}.nsse-bell-item small{color:#778174}.nsse-wa{position:fixed;right:22px;bottom:22px;width:56px;height:56px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 30px rgba(0,0,0,.2);z-index:9000;transition:.2s}.nsse-wa:hover{transform:translateY(-4px) scale(1.03)}.nsse-socials{display:flex;gap:10px;margin-top:16px}.nsse-socials a{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:#fff}.nsse-socials svg{width:19px;height:19px}.nsse-replies-block{margin-top:28px}.nsse-reply-card{background:#fff;border:1px solid #e2e8de;border-left:4px solid #8bc540;border-radius:12px;padding:16px;margin-bottom:12px}.nsse-reply-card small{color:#778174}.nsse-user-menu{display:none;align-items:center;gap:8px;font-size:.8rem}.nsse-user-menu.show{display:flex}.nsse-user-avatar{width:30px;height:30px;border-radius:50%;object-fit:cover}.nsse-page-editor-note{font-size:.8rem;color:#778174;margin-top:4px}
+
+/* NSSE global page transition */
+#nssePageLoader{position:fixed;inset:0;z-index:20000;background:linear-gradient(135deg,#062e1a,#125c30 55%,#8bc540);display:flex;align-items:center;justify-content:center;transition:opacity .55s ease,visibility .55s ease}
+#nssePageLoader.hide{opacity:0;visibility:hidden;pointer-events:none}
+.nsse-loader-inner{text-align:center;color:#fff}
+.nsse-loader-logo{width:78px;height:78px;object-fit:contain;filter:drop-shadow(0 12px 25px rgba(0,0,0,.22));animation:nsseLogoPulse 1.5s ease-in-out infinite}
+.nsse-loader-ring{width:110px;height:110px;border:2px solid rgba(255,255,255,.25);border-top-color:#d9f2ad;border-radius:50%;position:absolute;animation:nsseSpin .9s linear infinite}
+.nsse-loader-wrap{width:110px;height:110px;margin:auto;display:flex;align-items:center;justify-content:center;position:relative}
+.nsse-loader-text{margin-top:16px;font:700 12px/1.2 Inter,sans-serif;letter-spacing:.18em;text-transform:uppercase;opacity:.9}
+@keyframes nsseSpin{to{transform:rotate(360deg)}} @keyframes nsseLogoPulse{50%{transform:scale(1.06)}}
+.nsse-socials a{position:relative;overflow:visible;cursor:pointer;transition:transform .22s ease,box-shadow .22s ease,background .22s ease}
+.nsse-socials a:before{content:'';position:absolute;inset:-6px;border:1px solid rgba(139,197,64,.0);border-radius:50%;transform:scale(.55);opacity:0;transition:.22s ease}
+.nsse-socials a:hover{transform:translateY(-5px) rotate(-3deg);box-shadow:0 10px 24px rgba(0,0,0,.22);background:rgba(139,197,64,.24)}
+.nsse-socials a:hover:before{transform:scale(1);opacity:1;border-color:rgba(139,197,64,.7)}
+.nsse-bell-item[data-ann-id]{cursor:pointer;transition:background .15s ease}.nsse-bell-item[data-ann-id]:hover{background:#f4f8f1}
+.nsse-login-required{display:none;margin:0 0 16px;padding:11px 13px;border-radius:11px;background:#f3f8ee;color:#125c30;font-size:.84rem}
+
+</style>
+</head>
+<body data-page="announcements">
+<div id="nssePageLoader"><div class="nsse-loader-inner"><div class="nsse-loader-wrap"><span class="nsse-loader-ring"></span><img class="nsse-loader-logo" src="assets/images/logo.png" alt=""></div><div class="nsse-loader-text">Nawaz Sharif School of Eminence</div></div></div>
+<div class="topbar">
+<div class="container" style="justify-content:center;">
+<div class="topbar-item"><span class="badge-free">100% Free Education</span></div>
+</div>
+</div>
+<header class="site-header">
+<div class="container nav">
+<a class="brand" href="index.html">
+<img alt="Nawaz Sharif School of Eminence logo" id="headerLogo" src="assets/images/logo.png" style=""/>
+<span class="brand-text">
+<span class="name">Nawaz Sharif School of Eminence</span>
+<span class="tag">Boys Campus, Haroonabad</span>
+</span>
+</a>
+<nav class="nav-links" id="navLinks"><a href="index.html">Home</a><a href="academics.html">Academics</a><a href="admissions.html">Admissions</a><a aria-current="page" class="active" href="announcements.html">Announcements</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a></nav>
+<div class="nav-actions">
+
+<button aria-expanded="false" aria-label="Open menu" class="nav-toggle" id="navToggle">
+<span></span><span></span><span></span>
+</button>
+</div>
+</div>
+</header>
+<section class="page-header">
+<div class="container">
+<div class="breadcrumb"><a data-page-cms="announcements.1" data-page-href="announcements.1" href="index.html">Home</a> / Announcements</div>
+<h1 data-page-cms="announcements.2" data-word-anim="">Announcements</h1>
+<p data-page-cms="announcements.3">All the latest news, notices and important updates -- published directly from the admin panel.</p>
+</div>
+</section>
+<section class="section">
+<div class="container" style="max-width:780px;">
+<div id="announcementsList"></div>
+</div>
+</section>
+<footer class="site-footer">
+<div class="container">
+<div class="footer-grid">
+<div class="footer-col">
+<div class="footer-brand">
+<img alt="Nawaz Sharif School of Eminence logo" src="assets/images/logo.png"/>
+<b>Nawaz Sharif School of Eminence</b>
+</div>
+<p data-cms="aboutBlurb">"Rabbi zidni ilma" -- "My Lord, increase me in knowledge." Nawaz Sharif School of Eminence is a free school dedicated to academic excellence, strong character and a safe, encouraging environment for every student.</p>
+</div>
+<div class="footer-col">
+<h4>Explore</h4>
+<ul>
+<li><a href="academics.html">Academics</a></li>
+<li><a href="admissions.html">Admissions</a></li>
+<li><a href="gallery.html">Gallery</a></li>
+<li><a href="announcements.html">Announcements</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h4>Contact</h4>
+<ul>
+<li><a data-cms="phone" data-cms-href="phone" href="tel:+923712440150">0371-2440150</a></li>
+<li><a data-cms="email" data-cms-href="email" href="mailto:info@nsse-haroonabad.edu.pk">info@nsse-haroonabad.edu.pk</a></li>
+<li><span data-cms="address" style="color:#a9c3ab">Canal Road, Near Jag House, Haroonabad</span></li>
+</ul>
+</div>
+</div>
+<div class="nsse-socials"><a data-social="tiktok" href="#" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 4.2c.5 1.8 1.6 3 3.5 3.4v3.1c-1.4-.1-2.6-.5-3.6-1.2v6.3a5.8 5.8 0 1 1-5.8-5.8c.3 0 .7 0 1 .1v3.2a2.8 2.8 0 1 0 1.8 2.6V4.2h3.1z"/></svg></a><a data-social="facebook" href="#" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 8h3V4h-3c-2.8 0-5 2.2-5 5v3H6v4h3v4h4v-4h3l1-4h-4V9c0-.6.4-1 1-1z"/></svg></a><a data-social="whatsapp" href="#" target="_blank" rel="noopener" aria-label="WhatsApp Channel"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5zm-8 5.1c3.1 0 5.7-2.5 5.7-5.6S15.1 5.4 12 5.4 6.3 7.9 6.3 11c0 1.1.3 2.1.9 3L6.4 16l2.1-.7c1 .8 2.2 1.3 3.5 1.3z"/></svg></a></div><div class="footer-bottom">
+<span>© 2026 Nawaz Sharif School of Eminence -- Boys Campus, Haroonabad. All rights reserved.</span>
+
+</div>
+</div>
+</footer>
+
+<script>
+
+// Scroll reveal / swipe animations
+(function(){
+  var els = document.querySelectorAll('.reveal, .swipe-left, .swipe-right');
+  if(!els.length) return;
+  if(!('IntersectionObserver' in window)){ els.forEach(function(el){el.classList.add('is-visible');}); return; }
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){ entry.target.classList.add('is-visible'); obs.unobserve(entry.target); }
+    });
+  }, {threshold:.12});
+  els.forEach(function(el){ obs.observe(el); });
+})();
+// Staggered word-reveal for hero headline
+(function(){
+  document.querySelectorAll('[data-word-anim]').forEach(function(el){
+    var words = el.textContent.trim().split(/\s+/);
+    el.innerHTML = words.map(function(w, i){
+      return '<span class="word-anim" style="--i:' + i + '"><span>' + w + '&nbsp;</span></span>';
+    }).join('');
+  });
+})();
+
+// Mobile nav toggle
+(function(){
+  var toggle = document.getElementById('navToggle');
+  var links = document.getElementById('navLinks');
+  if(!toggle || !links) return;
+  toggle.addEventListener('click', function(){
+    var open = links.classList.toggle('open');
+    toggle.classList.toggle('active', open);
+    toggle.setAttribute('aria-expanded', String(open));
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  links.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      links.classList.remove('open');
+      toggle.classList.remove('active');
+      toggle.setAttribute('aria-expanded','false');
+      document.body.style.overflow = '';
+    });
+  });
+})();
+
+function runCounters(){
+  var els = document.querySelectorAll('[data-count]');
+  if(!els.length) return;
+  function animate(el){
+    var raw = el.textContent.trim();
+    var match = raw.match(/^([^\d]*)([\d,]+)(.*)$/);
+    if(!match) return;
+    var prefix = match[1], target = parseInt(match[2].replace(/,/g,''),10), suffix = match[3];
+    if(isNaN(target)) return;
+    var dur = 1400, start = null;
+    el.textContent = prefix + '0' + suffix;
+    function step(ts){
+      if(!start) start = ts;
+      var p = Math.min((ts - start) / dur, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      var current = Math.round(eased * target);
+      el.textContent = prefix + current.toLocaleString() + suffix;
+      if(p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  if(!('IntersectionObserver' in window)){ els.forEach(animate); return; }
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){ animate(entry.target); obs.unobserve(entry.target); }
+    });
+  }, {threshold:.4});
+  els.forEach(function(el){ obs.observe(el); });
+}
+if(window.__SITE_CONTENT_LOADED__){ runCounters(); }
+else{ document.addEventListener('sitecontentloaded', runCounters, {once:true}); setTimeout(runCounters, 1200); }
+
+</script>
+<script>
+
+function escapeHTML(str){ var d=document.createElement('div'); d.textContent = str || ''; return d.innerHTML; }
+var MONTHS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+function dateParts(s){ var d = s ? new Date(s) : new Date(); if(isNaN(d.getTime())) return {day:'--',month:'---'}; return {day:d.getDate(), month:MONTHS[d.getMonth()]}; }
+function cardHTML(a){
+  var p = dateParts(a.date);
+  return '<div class="announcement-card'+(a.pinned?' pinned':'')+'">'+
+    '<div class="date-badge"><span class="d">'+p.day+'</span><span class="m">'+p.month+'</span></div>'+
+    '<div>'+(a.pinned?'<span class="tag">Pinned</span> ':'')+(a.category?'<span class="tag">'+escapeHTML(a.category)+'</span>':'')+
+    '<h3>'+escapeHTML(a.title)+'</h3><p>'+escapeHTML(a.body)+'</p></div></div>';
+}
+async function fetchAnnouncements(limitCount){
+  if(!window.__FIREBASE_READY__ || !window.db) return [];
+  var q = db.collection('announcements').orderBy('date','desc');
+  if(limitCount) q = q.limit(limitCount);
+  var snap = await q.get();
+  var items = snap.docs.map(function(doc){ return Object.assign({id:doc.id}, doc.data()); });
+  items.sort(function(a,b){ return (b.pinned===true) - (a.pinned===true); });
+  return items;
+}
+
+function renderFullList(items){
+  var mount = document.getElementById('announcementsList');
+  if(!mount) return;
+  if(!items.length){ mount.innerHTML = '<div class="empty-state">No announcements have been posted yet. Once Firebase is connected, they will appear here.</div>'; return; }
+  mount.innerHTML = items.map(cardHTML).join('');
+}
+(async function(){
+  var mount = document.getElementById('announcementsList');
+  if(mount) mount.innerHTML = '<div class="loading-row"><span class="spinner"></span> Loading announcements...</div>';
+  var items = await fetchAnnouncements();
+  renderFullList(items);
+})();
+
+</script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script>
+(function(){
+  const CFG={
+    apiKey:"AIzaSyDBOiqL8Rm_Hw-Zracl8hME0tZCi2RaLyI",
+    authDomain:"nsse-boys-campus-hnd.firebaseapp.com",
+    projectId:"nsse-boys-campus-hnd",
+    storageBucket:"nsse-boys-campus-hnd.firebasestorage.app",
+    messagingSenderId:"985937404240",
+    appId:"1:985937404240:web:bdf0d804154918e37c4c55",
+    measurementId:"G-8R81EC8TW2"
+  };
+  if(!window.__NSSE_FIREBASE_READY__){
+    try{firebase.initializeApp(CFG);window.db=firebase.firestore();window.auth=firebase.auth();window.__NSSE_FIREBASE_READY__=true}catch(e){console.error(e)}
+  }
+  const page=document.body.getAttribute('data-page')||location.pathname.split('/').pop().replace('.html','')||'home';
+  const esc=s=>{const d=document.createElement('div');d.textContent=s==null?'':String(s);return d.innerHTML};
+  const isMain=page==='home'||location.pathname.endsWith('/')||location.pathname.endsWith('/index.html');
+
+  function pageLoaded(){
+    const l=document.getElementById('nssePageLoader');
+    if(l) setTimeout(()=>l.classList.add('hide'),220);
+  }
+  window.addEventListener('load',pageLoaded);
+  setTimeout(pageLoaded,1800);
+
+  function ensureUI(){
+    const actions=document.querySelector('.nav-actions');
+    if(actions&&!document.getElementById('nsseBellBtn')){
+      const b=document.createElement('button');b.className='nsse-bell';b.id='nsseBellBtn';b.setAttribute('aria-label','Announcements');
+      b.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"/><path d="M10 21h4"/></svg><span class="nsse-count" id="nsseBellCount">0</span>';
+      actions.insertBefore(b,actions.firstChild);
+    }
+    if(!document.getElementById('nsseBellPanel')){
+      const p=document.createElement('div');p.id='nsseBellPanel';p.className='nsse-bell-panel';
+      p.innerHTML='<div class="nsse-bell-head"><b>Latest Announcements</b><button id="nsseBellClose" style="border:0;background:none;font-size:20px;cursor:pointer">×</button></div><div id="nsseBellList"></div>';
+      document.body.appendChild(p);
+    }
+    if(!document.getElementById('nsseLoginOverlay')){
+      const o=document.createElement('div');o.id='nsseLoginOverlay';o.className='nsse-login-overlay';
+      o.innerHTML='<div class="nsse-login-card"><button class="nsse-login-close" id="nsseLoginClose">×</button><img class="nsse-login-logo" src="assets/images/logo.png"><h2>Welcome to NSSE</h2><p class="nsse-login-sub">Login is optional. You can browse the website without an account.</p><div class="nsse-auth-error" id="nsseAuthError"></div><button class="nsse-google-btn" id="nsseGoogleBtn"><span style="font-size:18px">G</span> Continue with Google</button><div class="nsse-auth-divider">or continue with email</div><input class="nsse-auth-input" id="nsseEmail" type="email" placeholder="Email address"><input class="nsse-auth-input" id="nssePassword" type="password" placeholder="Password"><div class="nsse-auth-actions"><button class="btn btn-primary" id="nsseEmailLogin">Login</button><button class="btn btn-outline" id="nsseEmailSignup">Create account</button></div><button id="nsseForgot" style="margin-top:13px;border:0;background:none;color:#125c30;font-weight:600;cursor:pointer">Forgot password?</button></div>';
+      document.body.appendChild(o);
+    }
+    if(!document.getElementById('nsseWA')){
+      const a=document.createElement('a');a.id='nsseWA';a.className='nsse-wa';a.target='_blank';a.rel='noopener';a.href='https://wa.me/923712440150';a.setAttribute('aria-label','WhatsApp');
+      a.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M8.5 8.5c.2 2.3 2.2 4.5 4.5 5 .5.1 1-.1 1.3-.5l.6-.8c.1-.2.1-.4-.1-.5l-1.4-.7c-.2-.1-.4-.4-.6.1l-.5.6c-1-.3-1.8-1.1-2.2-2l.5-.6c.1-.2.2-.4.1-.6L10 7.1c-.1-.2-.3-.2-.5-.1l-.8.4c-.2.2-.3.6-.2 1.1z"/></svg>';
+      document.body.appendChild(a);
+    }
+  }
+
+  async function loadContent(){
+    if(!window.db)return;
+    try{
+      const snap=await db.collection('siteContent').doc('main').get();if(!snap.exists)return;const d=snap.data();
+      document.querySelectorAll('[data-cms]').forEach(el=>{const k=el.getAttribute('data-cms');if(d[k]!==undefined&&d[k]!==null&&d[k]!=='')el.textContent=d[k]});
+      document.querySelectorAll('[data-cms-src]').forEach(el=>{const k=el.getAttribute('data-cms-src');if(d[k])el.src=d[k]});
+      document.querySelectorAll('[data-cms-href]').forEach(el=>{const k=el.getAttribute('data-cms-href');if(d[k]){let v=d[k];if(k==='phone')v='tel:'+v.replace(/[^0-9+]/g,'');if(k==='email')v='mailto:'+v;el.href=v}});
+      document.querySelectorAll('.nsse-wa').forEach(x=>x.href='https://wa.me/'+String(d.whatsappNumber||'923712440150').replace(/\D/g,''));
+      document.querySelectorAll('[data-social="tiktok"]').forEach(x=>x.href=d.socialTiktok||'#');
+      document.querySelectorAll('[data-social="facebook"]').forEach(x=>x.href=d.socialFacebook||'#');
+      document.querySelectorAll('[data-social="whatsapp"]').forEach(x=>x.href=d.socialWhatsapp||'#');
+    }catch(e){console.warn(e)}
+  }
+  async function loadPageContent(){
+    if(!window.db)return;
+    try{
+      const snap=await db.collection('pageContent').doc(page).get();if(!snap.exists)return;const d=snap.data();
+      Object.keys(d).forEach(k=>{const v=d[k];document.querySelectorAll('[data-page-cms="'+k+'"]').forEach(el=>{if(typeof v==='string')el.innerHTML=v});document.querySelectorAll('[data-page-src="'+k+'"]').forEach(el=>{if(v)el.src=v});document.querySelectorAll('[data-page-href="'+k+'"]').forEach(el=>{if(v)el.href=v})});
+    }catch(e){console.warn(e)}
+  }
+  async function announcements(){
+    if(!window.db)return[];
+    try{const s=await db.collection('announcements').orderBy('createdAt','desc').limit(30).get();return s.docs.map(x=>({id:x.id,...x.data()}))}
+    catch(e){try{const s=await db.collection('announcements').orderBy('date','desc').limit(30).get();return s.docs.map(x=>({id:x.id,...x.data()}))}catch(_){return[]}}
+  }
+  async function myReplies(uid){
+    if(!uid||!window.db)return[];
+    try{const s=await db.collection('replies').where('userId','==',uid).orderBy('createdAt','desc').limit(30).get();return s.docs.map(x=>({id:x.id,...x.data()}))}
+    catch(e){try{const s=await db.collection('replies').where('userId','==',uid).get();return s.docs.map(x=>({id:x.id,...x.data()}))}catch(_){return[]}}
+  }
+  function bellHTML(a){
+    return '<div class="nsse-bell-item" data-ann-id="'+esc(a.id)+'" title="Open announcement"><small>'+esc(a.category||'General')+' · '+esc(a.date||'')+'</small><div style="font-weight:700;margin-top:3px">'+esc(a.title||'')+'</div><div style="font-size:.84rem;color:#4b564a;margin-top:4px">'+esc(a.body||'')+'</div></div>';
+  }
+  function renderBell(items){
+    const list=document.getElementById('nsseBellList'),count=document.getElementById('nsseBellCount');if(!list)return;
+    if(count){count.textContent=Math.min(items.length,99);count.style.display=items.length?'block':'none'}
+    list.innerHTML=items.length?items.slice(0,10).map(bellHTML).join(''):'<div style="padding:20px;color:#778174">No announcements yet.</div>';
+    list.querySelectorAll('[data-ann-id]').forEach(el=>el.onclick=()=>{location.href='announcements.html#announcement-'+el.dataset.annId});
+  }
+  function renderReplies(items){
+    const host=document.getElementById('nsseReplies');if(!host)return;
+    host.innerHTML=items.length?items.map(a=>'<div class="nsse-reply-card"><small>'+esc(a.date||'')+'</small><h3 style="margin:4px 0">'+esc(a.title||'Reply from Administration')+'</h3><div>'+esc(a.body||'')+'</div></div>').join(''):'<div style="color:#778174">No replies yet.</div>';
+  }
+  function authUI(){
+    if(!window.auth)return;
+    firebase.auth().onAuthStateChanged(async u=>{
+      const btn=document.getElementById('nsseLoginOpen');
+      if(u){if(btn)btn.textContent='Account';document.body.dataset.loggedIn='true';}
+      else{if(btn)btn.textContent='Login';document.body.dataset.loggedIn='false';}
+      if(page==='announcements'){
+        const old=document.getElementById('nsseReplies');if(old)old.parentElement.remove();
+        if(u){const reps=await myReplies(u.uid);const mount=document.getElementById('announcementsList');if(mount){const sec=document.createElement('div');sec.className='nsse-replies-block';sec.innerHTML='<h2>Replies from Administration</h2><div id="nsseReplies"></div>';mount.parentElement.appendChild(sec);renderReplies(reps)}}
+      }
+    });
+  }
+  function wireLogin(){
+    const o=document.getElementById('nsseLoginOverlay');if(!o)return;
+    const close=()=>{o.classList.remove('open');if(isMain)sessionStorage.setItem('nsseLoginSeen','1')};
+    document.getElementById('nsseLoginClose').onclick=close;o.addEventListener('click',e=>{if(e.target===o)close()});
+    const err=m=>{const x=document.getElementById('nsseAuthError');x.textContent=m;x.style.display='block';x.style.color='#a1261f'};
+    document.getElementById('nsseGoogleBtn').onclick=async()=>{try{await auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());close()}catch(e){err(e.message)}};
+    document.getElementById('nsseEmailLogin').onclick=async()=>{try{await auth.signInWithEmailAndPassword(document.getElementById('nsseEmail').value.trim(),document.getElementById('nssePassword').value);close()}catch(e){err(e.message)}};
+    document.getElementById('nsseEmailSignup').onclick=async()=>{try{await auth.createUserWithEmailAndPassword(document.getElementById('nsseEmail').value.trim(),document.getElementById('nssePassword').value);close()}catch(e){err(e.message)}};
+    document.getElementById('nsseForgot').onclick=async()=>{try{await auth.sendPasswordResetEmail(document.getElementById('nsseEmail').value.trim());const x=document.getElementById('nsseAuthError');x.textContent='Password reset email sent.';x.style.display='block';x.style.color='#125c30'}catch(e){err(e.message)}};
+    if(isMain&&sessionStorage.getItem('nsseLoginSeen')!=='1')setTimeout(()=>o.classList.add('open'),700);
+    document.addEventListener('click',e=>{if(e.target.closest('#nsseLoginOpen'))o.classList.add('open')});
+  }
+  function injectLoginButton(){
+    const actions=document.querySelector('.nav-actions');if(!actions||document.getElementById('nsseLoginOpen'))return;
+    const b=document.createElement('button');b.id='nsseLoginOpen';b.className='btn btn-outline btn-sm';b.textContent='Login';actions.insertBefore(b,actions.firstChild);
+  }
+  async function requireLogin(){
+    if(auth.currentUser)return true;
+    document.getElementById('nsseLoginOverlay')?.classList.add('open');
+    return false;
+  }
+  async function init(){
+    ensureUI();injectLoginButton();wireLogin();authUI();await loadContent();await loadPageContent();
+    const items=await announcements();renderBell(items);
+    const btn=document.getElementById('nsseBellBtn'),panel=document.getElementById('nsseBellPanel');if(btn)btn.onclick=()=>panel.classList.toggle('open');
+    document.getElementById('nsseBellClose')?.addEventListener('click',()=>panel.classList.remove('open'));
+    document.addEventListener('click',e=>{if(panel&&!e.target.closest('#nsseBellPanel')&&!e.target.closest('#nsseBellBtn'))panel.classList.remove('open')});
+
+    const form=document.getElementById('contactForm');
+    if(form){
+      const note=document.getElementById('cf-note');
+      const required=document.createElement('div');required.className='nsse-login-required';required.id='nsseContactLoginNote';required.textContent='Please login first to send a private message to the school administration.';form.prepend(required);
+      form.addEventListener('submit',async e=>{
+        e.preventDefault();
+        const u=auth.currentUser;
+        if(!u){required.style.display='block';document.getElementById('nsseLoginOverlay').classList.add('open');return}
+        const btn=form.querySelector('button[type=submit]');
+        const data={name:document.getElementById('cf-name').value.trim(),phone:document.getElementById('cf-phone').value.trim(),subject:document.getElementById('cf-subject').value,message:document.getElementById('cf-message').value.trim(),userId:u.uid,userEmail:u.email||'',createdAt:firebase.firestore.FieldValue.serverTimestamp(),status:'new',replyStatus:'pending'};
+        try{btn.disabled=true;btn.textContent='Sending...';await db.collection('messages').add(data);note.textContent='Message sent privately. Your reply will appear only in your account under Announcements.';note.style.color='#125c30';required.style.display='none';form.reset()}catch(err){note.textContent='Unable to send right now. Please try again.';note.style.color='#b3261e'}finally{btn.disabled=false;btn.textContent='Send Message'}
+      });
+    }
+    if(document.getElementById('announcementsList')){
+      const mount=document.getElementById('announcementsList');
+      mount.innerHTML=items.length?items.map(a=>'<div id="announcement-'+esc(a.id)+'" class="announcement-card '+(a.pinned?'pinned':'')+'" style="cursor:pointer" onclick="location.hash=\''+esc(a.id)+'\'"><div class="date-badge"><span class="d">'+esc(a.date||'')+'</span></div><div><span class="tag">'+esc(a.category||'General')+'</span><h3>'+esc(a.title||'')+'</h3><p>'+esc(a.body||'')+'</p></div></div>').join(''):'<div class="empty-state">No announcements have been posted yet.</div>';
+      const jump=()=>{if(location.hash){const el=document.getElementById('announcement-'+location.hash.substring(1));if(el)el.scrollIntoView({behavior:'smooth',block:'center'})}};setTimeout(jump,250);
+    }
+    if(page==='admissions'){
+      const formBox=document.getElementById('nsseAdmissionFormDownload');
+      if(formBox){try{const s=await db.collection('siteContent').doc('main').get();const d=s.exists?s.data():{};if(d.admissionFormUrl){formBox.href=d.admissionFormUrl;formBox.style.display='inline-flex';}if(d.admissionFormTitle){formBox.textContent=d.admissionFormTitle}}catch(e){}}
+    }
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
+</script>
+</body>
+</html>

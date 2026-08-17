@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NSSE</title><link rel="icon" href="assets/images/logo.png">
+<style>body{margin:0;font-family:Inter,Arial,sans-serif;color:#173522;background:#fbfcf9}.wrap{max-width:960px;margin:auto;padding:80px 24px}.card{background:#fff;border:1px solid #dfe7dc;border-radius:18px;padding:35px;box-shadow:0 15px 45px rgba(0,0,0,.06)}a{color:#125c30}h1{color:#062e1a}</style></head>
+<body><div id="nssePageLoader"><div style="color:#fff;text-align:center;font:700 14px Arial">Loading NSSE…</div></div><main class="wrap"><div class="card"><div id="content">Loading...</div></div></main>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script><script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script>
+const C={apiKey:"AIzaSyDBOiqL8Rm_Hw-Zracl8hME0tZCi2RaLyI",authDomain:"nsse-boys-campus-hnd.firebaseapp.com",projectId:"nsse-boys-campus-hnd",storageBucket:"nsse-boys-campus-hnd.firebasestorage.app",messagingSenderId:"985937404240",appId:"1:985937404240:web:bdf0d804154918e37c4c55"};firebase.initializeApp(C);const db=firebase.firestore();
+(async()=>{const slug=new URLSearchParams(location.search).get('slug')||'';const s=await db.collection('customPages').where('slug','==',slug).limit(1).get();const el=document.getElementById('content');if(s.empty){el.innerHTML='<h1>Page not found</h1><p>The requested page does not exist.</p><a href="index.html">Return home</a>'}else{const d=s.docs[0].data();document.title=(d.title||'NSSE')+' | NSSE';el.innerHTML='<h1>'+String(d.title||'').replace(/[<>&"]/g,'')+'</h1>'+String(d.content||'')};document.getElementById('nssePageLoader').style.display='none'})().catch(()=>document.getElementById('content').innerHTML='<h1>Unable to load page</h1>');
+</script></body></html>
