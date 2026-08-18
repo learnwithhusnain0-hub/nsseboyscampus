@@ -154,15 +154,19 @@ button{font-family:inherit;cursor:pointer;}
 .hero-art img{width:min(320px,80%);filter:drop-shadow(0 24px 40px rgba(0,0,0,.4));}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
 @media (max-width:900px){.hero-grid{grid-template-columns:1fr;}.hero-art{order:-1;margin-bottom:8px;}.hero-art img{width:190px;}}
-.ticker-bar{background:var(--paper-dim);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
-.ticker-inner{display:flex;align-items:center;gap:16px;padding:12px 0;}
+.ticker-bar{position:relative;z-index:5;margin:-34px 0 0;}
+.ticker-inner{display:flex;align-items:center;gap:16px;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 18px 40px rgba(6,46,26,.14);padding:16px 26px;}
 .ticker-label{flex-shrink:0;display:flex;align-items:center;gap:8px;font-weight:700;font-size:.82rem;color:var(--green-800);text-transform:uppercase;letter-spacing:.04em;}
 .ticker-label .dot{width:8px;height:8px;border-radius:50%;background:#e05a3f;animation:pulse 1.6s ease-in-out infinite;}
+.ticker-bar.is-empty .ticker-label .dot{background:#b7c2b6;animation:none;}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
 .ticker-track{overflow:hidden;flex:1;}
 .ticker-items{display:flex;gap:48px;white-space:nowrap;animation:ticker 28s linear infinite;width:max-content;}
 .ticker-items span{font-size:.9rem;color:var(--ink-soft);}
+.ticker-bar.is-empty .ticker-items{animation:none;width:auto;}
+.ticker-bar.is-empty .ticker-items span{color:#9aa59a;font-style:italic;}
 @keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (max-width:640px){.ticker-inner{padding:14px 18px;border-radius:14px;}.ticker-label span:last-child{display:none;}}
 .stat-band{background:var(--green-800);color:#fff;padding:52px 0;}
 .stat-band .grid{text-align:center;}
 .stat-band b{display:block;font-family:var(--font-display);font-size:2.2rem;color:var(--lime-400);}
@@ -355,11 +359,11 @@ button{font-family:inherit;cursor:pointer;}
 </div>
 </div>
 </section>
-<div class="ticker-bar" id="tickerBar">
+<div class="ticker-bar is-empty" id="tickerBar">
 <div class="container ticker-inner">
-<div class="ticker-label"><span class="dot"></span> Latest</div>
+<div class="ticker-label"><span class="dot"></span> <span>Latest</span></div>
 <div class="ticker-track">
-<div class="ticker-items" id="tickerItems"><span>Latest announcements will appear here.</span></div>
+<div class="ticker-items" id="tickerItems"><span>No new announcements yet.</span></div>
 </div>
 </div>
 </div>
@@ -571,7 +575,12 @@ function renderTicker(items){
   var track = document.getElementById('tickerItems');
   var bar = document.getElementById('tickerBar');
   if(!track) return;
-  if(!items.length){ if(bar) bar.style.display='none'; return; }
+  if(!items.length){
+    if(bar){ bar.style.display=''; bar.classList.add('is-empty'); }
+    track.innerHTML = '<span>No new announcements yet.</span>';
+    return;
+  }
+  if(bar) bar.classList.remove('is-empty');
   // Show only the single most recent announcement in the scrolling ticker,
   // repeated a few times so the marquee loop always has content to show.
   var newest = items.slice().sort(function(a,b){ return new Date(b.date) - new Date(a.date); })[0];
