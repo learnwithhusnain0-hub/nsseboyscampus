@@ -572,8 +572,11 @@ function renderTicker(items){
   var bar = document.getElementById('tickerBar');
   if(!track) return;
   if(!items.length){ if(bar) bar.style.display='none'; return; }
-  var text = items.map(function(a){ return '<span>New: '+escapeHTML(a.title)+'</span>'; }).join('');
-  track.innerHTML = text + text;
+  // Show only the single most recent announcement in the scrolling ticker,
+  // repeated a few times so the marquee loop always has content to show.
+  var newest = items.slice().sort(function(a,b){ return new Date(b.date) - new Date(a.date); })[0];
+  var single = '<span>New: '+escapeHTML(newest.title)+'</span>';
+  track.innerHTML = single + single + single + single;
 }
 function renderPreview(items){
   var mount = document.getElementById('homeAnnouncements');
