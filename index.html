@@ -167,7 +167,17 @@ button{font-family:inherit;cursor:pointer;}
 .ticker-bar.is-empty .ticker-items span{color:#9aa59a;font-style:italic;}
 @keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media (max-width:640px){.ticker-inner{padding:14px 18px;border-radius:14px;}.ticker-label span:last-child{display:none;}}
-.stat-band{background:var(--green-800);color:#fff;padding:52px 0;}
+.affil-band{background:var(--paper);padding:44px 0 50px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+.affil-head{text-align:center;margin-bottom:26px;}
+.affil-head .eyebrow{display:inline-block;}
+.affil-head h3{font-size:1.15rem;color:var(--green-900);margin-top:4px;}
+.affil-mask{overflow:hidden;-webkit-mask-image:linear-gradient(to right,transparent 0,#000 10%,#000 90%,transparent 100%);mask-image:linear-gradient(to right,transparent 0,#000 10%,#000 90%,transparent 100%);}
+.affil-track{display:flex;align-items:center;gap:64px;width:max-content;animation:affilScroll 24s linear infinite;}
+.affil-track:hover{animation-play-state:paused;}
+@keyframes affilScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.affil-logo{flex-shrink:0;width:96px;height:96px;border-radius:50%;background:#fff;border:1px solid var(--line);box-shadow:0 10px 26px rgba(6,46,26,.1);display:flex;align-items:center;justify-content:center;overflow:hidden;padding:12px;}
+.affil-logo img{width:100%;height:100%;object-fit:contain;}
+@media (max-width:640px){.affil-logo{width:74px;height:74px;padding:9px;}.affil-track{gap:40px;}}
 .stat-band .grid{text-align:center;}
 .stat-band b{display:block;font-family:var(--font-display);font-size:2.2rem;color:var(--lime-400);}
 .stat-band span{font-size:.85rem;color:#cfe1d1;}
@@ -395,6 +405,26 @@ button{font-family:inherit;cursor:pointer;}
 </div>
 </div>
 </div>
+<div class="affil-band">
+<div class="container">
+<div class="affil-head">
+<span class="eyebrow">Our Affiliations</span>
+<h3>Recognized &amp; Affiliated By</h3>
+</div>
+<div class="affil-mask">
+<div class="affil-track">
+<div class="affil-logo"><img alt="Affiliation logo 1" loading="lazy" src="https://i.ibb.co/kfsY06m/images.jpg"/></div>
+<div class="affil-logo"><img alt="Government of Punjab" loading="lazy" src="https://i.ibb.co/WvWZGscS/punjab-govt-696x379.png"/></div>
+<div class="affil-logo"><img alt="Punjab Education Foundation" loading="lazy" src="https://i.ibb.co/bjv2sTrB/cropped-PEF-Logo-1.webp"/></div>
+<div class="affil-logo"><img alt="BISE Bahawalpur" loading="lazy" src="https://i.ibb.co/prN15f8C/BISE-Bahawalpur.jpg"/></div>
+<div class="affil-logo"><img alt="Affiliation logo 1" loading="lazy" src="https://i.ibb.co/kfsY06m/images.jpg"/></div>
+<div class="affil-logo"><img alt="Government of Punjab" loading="lazy" src="https://i.ibb.co/WvWZGscS/punjab-govt-696x379.png"/></div>
+<div class="affil-logo"><img alt="Punjab Education Foundation" loading="lazy" src="https://i.ibb.co/bjv2sTrB/cropped-PEF-Logo-1.webp"/></div>
+<div class="affil-logo"><img alt="BISE Bahawalpur" loading="lazy" src="https://i.ibb.co/prN15f8C/BISE-Bahawalpur.jpg"/></div>
+</div>
+</div>
+</div>
+</div>
 <section class="section">
 <div class="container principal-section">
 <div class="principal-photo swipe-left">
@@ -562,7 +592,7 @@ function cardHTML(a){
     '<h3>'+escapeHTML(a.title)+'</h3><p>'+escapeHTML(a.body)+'</p></div></div>';
 }
 async function fetchAnnouncements(limitCount){
-  if(!window.__FIREBASE_READY__ || !window.db) return [];
+  if(!window.__NSSE_FIREBASE_READY__ || !window.db) return [];
   var q = db.collection('announcements').orderBy('date','desc');
   if(limitCount) q = q.limit(limitCount);
   var snap = await q.get();
@@ -593,12 +623,23 @@ function renderPreview(items){
   if(!items.length){ mount.innerHTML = '<div class="empty-state">No announcements have been posted yet.</div>'; return; }
   mount.innerHTML = items.slice(0,3).map(cardHTML).join('');
 }
-(async function(){
-  var mount = document.getElementById('homeAnnouncements');
-  if(mount) mount.innerHTML = '<div class="loading-row"><span class="spinner"></span> Loading announcements...</div>';
-  var items = await fetchAnnouncements(8);
-  renderTicker(items);
-  renderPreview(items);
+function whenFirebaseReady(cb){
+  if(window.__NSSE_FIREBASE_READY__ && window.db){ cb(); return; }
+  var tries = 0;
+  var iv = setInterval(function(){
+    tries++;
+    if(window.__NSSE_FIREBASE_READY__ && window.db){ clearInterval(iv); cb(); }
+    else if(tries > 150){ clearInterval(iv); cb(); }
+  }, 100);
+}
+(function(){
+  whenFirebaseReady(async function(){
+    var mount = document.getElementById('homeAnnouncements');
+    if(mount) mount.innerHTML = '<div class="loading-row"><span class="spinner"></span> Loading announcements...</div>';
+    var items = await fetchAnnouncements(8);
+    renderTicker(items);
+    renderPreview(items);
+  });
 })();
 
 </script>
