@@ -614,7 +614,7 @@ function renderTicker(items){
   // Show only the single most recent announcement in the scrolling ticker,
   // repeated a few times so the marquee loop always has content to show.
   var newest = items.slice().sort(function(a,b){ return new Date(b.date) - new Date(a.date); })[0];
-  var single = '<span>New: '+escapeHTML(newest.title)+'</span>';
+  var single = '<span>New: '+escapeHTML(newest.body||newest.title)+'</span>';
   track.innerHTML = single + single + single + single;
 }
 function renderPreview(items){
